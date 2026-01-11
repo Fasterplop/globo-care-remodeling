@@ -1,16 +1,49 @@
 ---
-
+import { Hammer, CheckCircle } from 'lucide-astro';
 ---
 
-<html lang="en">
+<html lang="es">
 	<head>
 		<meta charset="utf-8" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
+		<title>Tailwind Debug - Globo Care</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
 	</head>
-	<body>
-		<h1>Astro</h1>
+	<body class="bg-neutral-surface font-sans text-neutral-deep p-10">
+		<div class="max-w-2xl mx-auto space-y-8">
+			<h1 class="font-display text-4xl font-bold border-b pb-4">
+				Debug: Design System Checklist
+			</h1>
+
+			<section class="space-y-4">
+				<h2 class="font-display text-xl font-semibold">1. Colores y Bordes</h2>
+				<div class="flex gap-4">
+					<div class="bg-brand-primary text-black p-4 rounded-brand shadow-sm flex items-center gap-2">
+						<CheckCircle size={20} />
+						<span>Primary Orange (AA Check) </span>
+					</div>
+					<div class="bg-neutral-deep text-white p-4 rounded-brand flex items-center gap-2">
+						<Hammer size={20} />
+						<span>Neutral Deep (Slate)</span>
+					</div>
+				</div>
+			</section>
+
+			<section class="space-y-4">
+				<h2 class="font-display text-xl font-semibold">2. Tipografía</h2>
+				<p class="font-display font-bold text-lg">Montserrat Bold: Para Títulos y Headers.</p>
+				<p class="font-sans">Inter Regular: Para el cuerpo de texto y lectura prolongada.</p>
+			</section>
+
+			<section class="space-y-20">
+				<h2 class="font-display text-xl font-semibold">3. Interacciones</h2>
+				<button class="bg-brand-primary hover:brightness-110 text-black px-6 py-2 rounded-brand transition-all font-semibold">
+					Hover me (Brightness 110%)
+				</button>
+			</section>
+		</div>
 	</body>
 </html>
