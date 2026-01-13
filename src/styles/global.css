@@ -1,2 +1,25 @@
 /* src/styles/global.css */
 @import "tailwindcss";
+
+@theme {
+  /* Paleta de Colores Globo Care */
+  --color-primary: #F39200;
+  --color-primary-dark: #d98200; /* Hover state */
+  
+  --color-neutral-deep: #1A202C; /* Hero BG */
+  --color-neutral-light: #F7FAFC; /* Backgrounds */
+  
+  --color-status-success: #38A169;
+  
+  /* Tipografías */
+  --font-sans: 'Inter', sans-serif;
+  --font-heading: 'Montserrat', sans-serif;
+}
+
+/* Estilos base globales */
+html, body {
+  @apply h-full w-full;
+  overflow-x: hidden;
+}
+
+

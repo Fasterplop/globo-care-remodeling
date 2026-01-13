@@ -1,0 +1,149 @@
+---
+// src/pages/index.astro
+import Layout from '../layouts/Layout.astro';
+import BeforeAfter from '../components/BeforeAfter.astro';
+
+// Mensaje Predefinido para WhatsApp (Inglés)
+const whatsappMsg = "Hello, I would like to request a free estimate for my project.";
+const whatsappLink = `https://wa.me/19418961852?text=${encodeURIComponent(whatsappMsg)}`;
+---
+
+<Layout 
+  title="Luxury Remodeling in Sarasota" 
+  description="Experts in bathroom remodeling and flooring in Sarasota. Zero dust guarantee and precision finishes.">
+  
+  <section class="relative bg-neutral-deep text-white overflow-hidden">
+    <div class="absolute inset-0 z-0 opacity-40">
+      <img src="https://images.unsplash.com/photo-1600607686527-6fb886090705?q=80&w=2000&auto=format&fit=crop" alt="Remodeling in Sarasota" class="w-full h-full object-cover" />
+    </div>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 lg:py-48 flex flex-col items-center text-center">
+      <h1 class="font-heading text-4xl md:text-5xl lg:text-7xl font-bold tracking-tight mb-6 leading-tight">
+        Transforming Spaces, <br />
+        <span class="text-primary">Improving Your Life.</span>
+      </h1>
+      
+      <p class="text-lg md:text-xl text-gray-300 max-w-2xl mb-10 font-light leading-relaxed">
+        Elevating the standard of your home in Sarasota. Specialists in bathrooms and flooring with 
+        <strong>total cleanliness guarantee</strong> and artisan finishes.
+      </p>
+      
+      <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+        <a href={whatsappLink} target="_blank" rel="noopener noreferrer" class="bg-primary hover:bg-primary-dark text-black px-8 py-4 rounded-md font-bold text-lg transition-all shadow-[0_4px_14px_0_rgba(243,146,0,0.39)] hover:shadow-[0_6px_20px_rgba(243,146,0,0.23)] hover:-translate-y-1 text-center">
+          Get My Free Estimate
+        </a>
+        
+        <a href="/gallery" class="group bg-transparent border-2 border-white hover:bg-white hover:text-neutral-deep text-white px-8 py-4 rounded-md font-bold text-lg transition-all text-center flex items-center justify-center gap-2">
+          See Transformations
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+        </a>
+      </div>
+      
+      <div class="mt-8 flex items-center gap-2 text-sm text-gray-400 font-medium bg-neutral-deep/50 px-4 py-2 rounded-full backdrop-blur-sm border border-gray-700">
+        <span class="text-primary">★</span> 
+        <span>Local Sarasota Experts. Transparent Quotes.</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-neutral-light">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="font-heading text-3xl md:text-4xl font-bold text-neutral-deep mb-4">
+        From Ordinary to Extraordinary.
+      </h2>
+      <p class="text-gray-600 mb-12 max-w-2xl mx-auto">
+        Explore our most recent transformations with our interactive before and after viewer.
+      </p>
+      
+      <div class="px-4">
+        <BeforeAfter 
+          beforeImage="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?q=80&w=1200&auto=format&fit=crop"
+          afterImage="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1200&auto=format&fit=crop"
+          alt="Kitchen Transformation"
+        />
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="font-heading text-3xl md:text-4xl font-bold text-neutral-deep">
+          Comprehensive Remodeling and Installation Solutions.
+        </h2>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-neutral-light p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+          <h3 class="font-heading text-xl font-bold text-neutral-deep mb-3">Professional Remodeling</h3>
+          <p class="text-gray-600 mb-6">Complete renovation of bathrooms, floors, and interior spaces with attention to detail.</p>
+          <a href="/services/remodeling" class="text-primary font-bold hover:underline">See more about Remodeling &rarr;</a>
+        </div>
+
+        <div class="bg-neutral-light p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+          <h3 class="font-heading text-xl font-bold text-neutral-deep mb-3">Specialized Installation</h3>
+          <p class="text-gray-600 mb-6">Experts in flooring and wall covering installation using high-quality materials.</p>
+          <a href="/services/installation" class="text-primary font-bold hover:underline">See more about Installation &rarr;</a>
+        </div>
+
+        <div class="bg-neutral-light p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+          <h3 class="font-heading text-xl font-bold text-neutral-deep mb-3">General Demolition</h3>
+          <p class="text-gray-600 mb-6">Technical preparation of spaces with cleanliness and efficiency for your next project.</p>
+          <a href="/services/demolition" class="text-primary font-bold hover:underline">See more about Demolition &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-neutral-deep text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="font-heading text-3xl md:text-4xl font-bold mb-12 text-center">
+        The Quality Standard Your Home Deserves.
+      </h2>
+      <div class="grid md:grid-cols-3 gap-8 text-center">
+        <div class="p-6">
+          <h3 class="font-bold text-xl mb-3 text-primary">Local Trust</h3>
+          <p class="text-gray-300">We know the standards and demands of families in Sarasota.</p>
+        </div>
+        <div class="p-6">
+          <h3 class="font-bold text-xl mb-3 text-primary">Tangible Results</h3>
+          <p class="text-gray-300">Our project gallery reflects precision in every finish.</p>
+        </div>
+        <div class="p-6">
+          <h3 class="font-bold text-xl mb-3 text-primary">Total Transparency</h3>
+          <p class="text-gray-300">We offer clear, no-obligation estimates from the very first contact.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-neutral-light">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <h2 class="font-heading text-3xl md:text-4xl font-bold text-neutral-deep mb-12">
+        What Our Clients in Sarasota Say.
+      </h2>
+      
+      <blockquote class="text-2xl italic text-gray-600 mb-6 relative">
+        <span class="text-6xl text-primary absolute -top-8 -left-4 opacity-20">"</span>
+        The attention to detail in our master bathroom remodel was exceptional. The whole process was professional and clean.
+        <span class="text-6xl text-primary absolute -bottom-12 -right-4 opacity-20">"</span>
+      </blockquote>
+      
+      <p class="font-bold text-neutral-deep">— Roberts Family, Sarasota</p>
+    </div>
+  </section>
+
+  <section class="py-20 bg-white border-t border-gray-100">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <h2 class="font-heading text-3xl md:text-4xl font-bold text-neutral-deep mb-6">
+        Ready to Start Your Next Project?
+      </h2>
+      <p class="text-lg text-gray-600 mb-10">
+        Don't leave your home in just anyone's hands. Get the professional advice you need today.
+      </p>
+      <a href={whatsappLink} target="_blank" rel="noopener noreferrer" class="inline-block bg-primary hover:bg-primary-dark text-black px-8 py-4 rounded-md font-bold text-lg transition-all shadow-lg hover:shadow-xl">
+        Get My Free Estimate
+      </a>
+    </div>
+  </section>
+</Layout>

@@ -1,15 +1,19 @@
-// @ts-check
+// astro.config.mjs
 import { defineConfig } from 'astro/config';
-
+import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
 
-import sitemap from '@astrojs/sitemap';
-
-// https://astro.build/config
 export default defineConfig({
+  site: 'https://globocareremodeling.com',
+  integrations: [sitemap()],
   vite: {
-    plugins: [tailwindcss()]
+    plugins: [tailwindcss()],
   },
-
-  integrations: [sitemap()]
+  i18n: {
+    defaultLocale: "en",
+    locales: ["en", "es"],
+    routing: {
+      prefixDefaultLocale: false
+    }
+  }
 });

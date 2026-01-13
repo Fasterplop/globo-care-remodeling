@@ -1,2 +1,181 @@
 ---
-import '../styles/global.css'; 
+// src/layouts/Layout.astro
+import '../styles/global.css';
+import '@fontsource/montserrat';
+import '@fontsource/inter';
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+interface Props {
+	title: string;
+	description?: string;
+}
+
+const { title, description = "Remodelación y Construcción en Sarasota | Globo Care Remodeling" } = Astro.props;
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const currentPath = Astro.url.pathname;
+
+// Lógica de rutas
+const isSpanishPath = currentPath.startsWith('/es');
+const esPath = isSpanishPath ? currentPath : `/es${currentPath === '/' ? '' : currentPath}`;
+const enPath = isSpanishPath ? (currentPath.replace('/es', '') || '/') : currentPath;
+
+// CTA y WhatsApp Config
+const ctaText = lang === 'es' ? 'Solicitar Estimado' : 'Free Estimate';
+
+// Mensaje Predefinido según idioma
+const whatsappMsg = lang === 'es' 
+    ? "Hola, quisiera solicitar un estimado gratuito para mi proyecto." 
+    : "Hello, I would like to request a free estimate for my project.";
+
+// Enlace final codificado
+const whatsappLink = `https://wa.me/19418961852?text=${encodeURIComponent(whatsappMsg)}`;
+---
+
+<!doctype html>
+<html lang={lang} class="scroll-smooth">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content={description} />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title} | Globo Care Remodeling</title>
+	</head>
+	<body class="font-sans text-neutral-deep bg-neutral-light antialiased">
+		<header class="sticky top-0 z-50 w-full bg-white/95 backdrop-blur-sm border-b border-gray-100 transition-all duration-300">
+			<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+				<div class="flex justify-between items-center h-20">
+					<div class="flex-shrink-0 z-50">
+						<a href={lang === 'en' ? '/' : '/es'} class="flex items-center gap-2 sm:gap-3 group">
+							<img src="/logo-navbar.png.webp" alt="Globo Care Remodeling" class="h-10 sm:h-12 w-auto transition-transform group-hover:scale-105" />
+                            <span class="font-heading font-bold text-xs sm:text-base lg:text-xl text-neutral-deep tracking-tight block whitespace-nowrap">
+                                Globo Care Remodeling
+                            </span>
+						</a>
+					</div>
+
+					<nav class="hidden md:flex space-x-8 items-center">
+						<a href={lang === 'en' ? '/services' : '/es/servicios'} class="text-neutral-deep hover:text-primary font-medium transition-colors text-sm uppercase tracking-wide">
+                            {lang === 'es' ? 'Servicios' : 'Services'}
+                        </a>
+						<a href={lang === 'en' ? '/gallery' : '/es/galeria'} class="text-neutral-deep hover:text-primary font-medium transition-colors text-sm uppercase tracking-wide">
+                            {lang === 'es' ? 'Galería' : 'Gallery'}
+                        </a>
+						<a href={lang === 'en' ? '/about' : '/es/nosotros'} class="text-neutral-deep hover:text-primary font-medium transition-colors text-sm uppercase tracking-wide">
+                            {lang === 'es' ? 'Nosotros' : 'About'}
+                        </a>
+						<a href={lang === 'en' ? '/contact' : '/es/contacto'} class="text-neutral-deep hover:text-primary font-medium transition-colors text-sm uppercase tracking-wide">
+                            {lang === 'es' ? 'Contacto' : 'Contact'}
+                        </a>
+					</nav>
+
+					<div class="hidden md:flex items-center space-x-6">
+						<div class="text-xs font-bold text-neutral-deep flex items-center gap-1 border border-gray-200 rounded px-2 py-1 bg-white">
+                            {lang === 'es' ? (
+                                <span class="text-primary cursor-default select-none">ES</span>
+                            ) : (
+                                <a href={esPath} class="text-gray-400 hover:text-primary transition-colors">ES</a>
+                            )}
+                            <span class="text-gray-300">|</span>
+                            {lang === 'en' ? (
+                                <span class="text-primary cursor-default select-none">EN</span>
+                            ) : (
+                                <a href={enPath} class="text-gray-400 hover:text-primary transition-colors">EN</a>
+                            )}
+                        </div>
+
+                        <a href={whatsappLink} target="_blank" rel="noopener noreferrer" class="bg-primary hover:bg-primary-dark text-black px-5 py-2.5 rounded-md font-bold text-sm transition-all shadow-md hover:shadow-lg transform hover:-translate-y-0.5 whitespace-nowrap">
+							{ctaText}
+						</a>
+					</div>
+                    
+                    <div class="md:hidden flex items-center z-50">
+                        <button id="mobile-menu-btn" class="text-neutral-deep hover:text-primary p-2 focus:outline-none" aria-label="Menu">
+                            <svg id="icon-open" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                            </svg>
+                            <svg id="icon-close" class="h-8 w-8 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                        </button>
+                    </div>
+				</div>
+			</div>
+
+            <div id="mobile-menu" class="fixed inset-0 bg-white z-40 transform translate-x-full transition-transform duration-300 ease-in-out md:hidden flex flex-col justify-center items-center h-dvh w-screen">
+                <nav class="flex flex-col space-y-8 text-center w-full px-6">
+                    <a href={lang === 'en' ? '/' : '/es'} class="text-3xl font-heading font-bold text-neutral-deep hover:text-primary transition-colors" onclick="closeMenu()">
+                        {lang === 'es' ? 'Inicio' : 'Home'}
+                    </a>
+                    <a href={lang === 'en' ? '/services' : '/es/servicios'} class="text-3xl font-heading font-bold text-neutral-deep hover:text-primary transition-colors" onclick="closeMenu()">
+                        {lang === 'es' ? 'Servicios' : 'Services'}
+                    </a>
+                    <a href={lang === 'en' ? '/gallery' : '/es/galeria'} class="text-3xl font-heading font-bold text-neutral-deep hover:text-primary transition-colors" onclick="closeMenu()">
+                        {lang === 'es' ? 'Galería' : 'Gallery'}
+                    </a>
+                    <a href={lang === 'en' ? '/about' : '/es/nosotros'} class="text-3xl font-heading font-bold text-neutral-deep hover:text-primary transition-colors" onclick="closeMenu()">
+                        {lang === 'es' ? 'Nosotros' : 'About'}
+                    </a>
+                    <a href={lang === 'en' ? '/contact' : '/es/contacto'} class="text-3xl font-heading font-bold text-neutral-deep hover:text-primary transition-colors" onclick="closeMenu()">
+                        {lang === 'es' ? 'Contacto' : 'Contact'}
+                    </a>
+
+                    <div class="w-16 h-1 bg-gray-100 mx-auto rounded-full"></div>
+
+                    <div class="flex justify-center gap-8 text-xl font-bold">
+                         <a href={esPath} class={lang === 'es' ? 'text-primary scale-110' : 'text-gray-400'}>ESPAÑOL</a>
+                         <a href={enPath} class={lang === 'en' ? 'text-primary scale-110' : 'text-gray-400'}>ENGLISH</a>
+                    </div>
+
+                    <div class="mt-4">
+                        <a href={whatsappLink} target="_blank" rel="noopener noreferrer" class="inline-block w-full max-w-xs bg-primary text-black py-4 rounded-lg font-bold text-xl shadow-lg active:scale-95 transition-transform">
+                            {ctaText}
+                        </a>
+                    </div>
+                </nav>
+            </div>
+		</header>
+
+		<main>
+			<slot />
+		</main>
+
+		<footer class="bg-neutral-deep text-white py-12 mt-20">
+			<div class="max-w-7xl mx-auto px-4 text-center">
+				<p class="text-gray-400 text-sm">© {new Date().getFullYear()} Globo Care Remodeling. {t('footer.rights')}</p>
+			</div>
+		</footer>
+
+        <script is:inline>
+            const btn = document.getElementById('mobile-menu-btn');
+            const menu = document.getElementById('mobile-menu');
+            const iconOpen = document.getElementById('icon-open');
+            const iconClose = document.getElementById('icon-close');
+            let isMenuOpen = false;
+
+            function toggleMenu() {
+                isMenuOpen = !isMenuOpen;
+                if (isMenuOpen) {
+                    menu.classList.remove('translate-x-full');
+                    iconOpen.classList.add('hidden');
+                    iconClose.classList.remove('hidden');
+                    document.body.style.overflow = 'hidden'; // Bloquear scroll
+                } else {
+                    closeMenu();
+                }
+            }
+
+            function closeMenu() {
+                isMenuOpen = false;
+                menu.classList.add('translate-x-full');
+                iconOpen.classList.remove('hidden');
+                iconClose.classList.add('hidden');
+                document.body.style.overflow = ''; // Restaurar scroll
+            }
+
+            btn.addEventListener('click', toggleMenu);
+        </script>
+	</body>
+</html>

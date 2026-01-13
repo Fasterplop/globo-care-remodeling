@@ -1,29 +1,30 @@
+// tailwind.config.mjs
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
-  theme: {
-    extend: {
-      colors: {
-        brand: {
-          primary: '#F39200', // Naranja Logo [cite: 366]
-          primaryDark: '#D47F00', // Para accesibilidad 
-        },
-        neutral: {
-          deep: '#1A202C', // Slate Grey [cite: 367]
-          surface: '#F7FAFC', // Off-white [cite: 368]
-        }
-      },
-      fontFamily: {
-        sans: ['Inter', 'sans-serif'], // Body [cite: 372]
-        display: ['Montserrat', 'sans-serif'], // Headings [cite: 371]
-      },
-      spacing: {
-        '8pt': '8px', // 8pt Grid 
-      },
-      borderRadius: {
-        'brand': '4px', // Precisión [cite: 374]
-      }
-    },
-  },
-  plugins: [],
+	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
+	theme: {
+		extend: {
+			colors: {
+				primary: '#F39200', // Naranja Logo
+				'primary-dark': '#d98200', // Hover state (calculado)
+				neutral: {
+					deep: '#1A202C', // Slate Grey (Hero BG)
+					light: '#F7FAFC', // Off-white (Fondos generales)
+				},
+				status: {
+					success: '#38A169',
+					warning: '#D69E2E',
+					error: '#E53E3E',
+				}
+			},
+			fontFamily: {
+				sans: ['Inter', 'sans-serif'], // Body text
+				heading: ['Montserrat', 'sans-serif'], // H1-H6
+			},
+			backgroundImage: {
+				'hero-pattern': "url('/images/hero-bg-overlay.png')", // Placeholder para futuro
+			}
+		},
+	},
+	plugins: [],
 }
