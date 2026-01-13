@@ -16,20 +16,49 @@ const t = useTranslations(lang);
 
 const currentPath = Astro.url.pathname;
 
-// Lógica de rutas
-const isSpanishPath = currentPath.startsWith('/es');
-const esPath = isSpanishPath ? currentPath : `/es${currentPath === '/' ? '' : currentPath}`;
-const enPath = isSpanishPath ? (currentPath.replace('/es', '') || '/') : currentPath;
+// --- LÓGICA DE TRADUCCIÓN DE RUTAS (FIX) ---
+// Mapa de equivalencias exactas para las URLs
+const routeMap: Record<string, string> = {
+    // De Inglés a Español
+    '/services': '/es/servicios',
+    '/gallery': '/es/galeria',
+    '/about': '/es/nosotros',
+    '/contact': '/es/contacto',
+    // De Español a Inglés
+    '/es/servicios': '/services',
+    '/es/galeria': '/gallery',
+    '/es/nosotros': '/about',
+    '/es/contacto': '/contact',
+};
+
+// Función para calcular la ruta contraria
+function getTranslatedPath(path: string, targetLang: 'en' | 'es') {
+    // 1. Normalizar path (quitar slash final si no es la raíz para comparar bien)
+    const cleanPath = path !== '/' && path.endsWith('/') ? path.slice(0, -1) : path;
+    
+    // 2. Buscar traducción directa en el mapa
+    if (routeMap[cleanPath]) {
+        return routeMap[cleanPath];
+    }
+
+    // 3. Fallback: Lógica estándar para Home u otras rutas no mapeadas
+    if (targetLang === 'es') {
+        // Si quiero ir a español y no estoy en español, agrego /es
+        return path.startsWith('/es') ? path : `/es${path === '/' ? '' : path}`;
+    } else {
+        // Si quiero ir a inglés, quito /es
+        return path.startsWith('/es') ? (path.replace('/es', '') || '/') : path;
+    }
+}
+
+const esPath = getTranslatedPath(currentPath, 'es');
+const enPath = getTranslatedPath(currentPath, 'en');
 
 // CTA y WhatsApp Config
 const ctaText = lang === 'es' ? 'Solicitar Estimado' : 'Free Estimate';
-
-// Mensaje Predefinido según idioma
 const whatsappMsg = lang === 'es' 
     ? "Hola, quisiera solicitar un estimado gratuito para mi proyecto." 
     : "Hello, I would like to request a free estimate for my project.";
-
-// Enlace final codificado
 const whatsappLink = `https://wa.me/19418961852?text=${encodeURIComponent(whatsappMsg)}`;
 ---
 
@@ -50,7 +79,7 @@ const whatsappLink = `https://wa.me/19418961852?text=${encodeURIComponent(whatsa
 					<div class="flex-shrink-0 z-50">
 						<a href={lang === 'en' ? '/' : '/es'} class="flex items-center gap-2 sm:gap-3 group">
 							<img src="/logo-navbar.png.webp" alt="Globo Care Remodeling" class="h-10 sm:h-12 w-auto transition-transform group-hover:scale-105" />
-                            <span class="font-heading font-bold text-xs sm:text-base lg:text-xl text-neutral-deep tracking-tight block whitespace-nowrap">
+                            <span class="font-heading font-bold text-xs lg:text-xl text-neutral-deep tracking-tight block md:hidden lg:block whitespace-nowrap">
                                 Globo Care Remodeling
                             </span>
 						</a>
@@ -161,7 +190,7 @@ const whatsappLink = `https://wa.me/19418961852?text=${encodeURIComponent(whatsa
                     menu.classList.remove('translate-x-full');
                     iconOpen.classList.add('hidden');
                     iconClose.classList.remove('hidden');
-                    document.body.style.overflow = 'hidden'; // Bloquear scroll
+                    document.body.style.overflow = 'hidden'; 
                 } else {
                     closeMenu();
                 }
@@ -172,7 +201,7 @@ const whatsappLink = `https://wa.me/19418961852?text=${encodeURIComponent(whatsa
                 menu.classList.add('translate-x-full');
                 iconOpen.classList.remove('hidden');
                 iconClose.classList.add('hidden');
-                document.body.style.overflow = ''; // Restaurar scroll
+                document.body.style.overflow = ''; 
             }
 
             btn.addEventListener('click', toggleMenu);

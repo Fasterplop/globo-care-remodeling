@@ -1,0 +1,154 @@
+---
+// src/pages/es/servicios/index.astro
+import Layout from '../../../layouts/Layout.astro';
+
+// Mensaje WhatsApp
+const whatsappMsg = "Hola, me gustaría más información sobre sus servicios generales.";
+const whatsappLink = `https://wa.me/19418961852?text=${encodeURIComponent(whatsappMsg)}`;
+---
+
+<Layout 
+  title="Nuestros Servicios | Globo Care Remodeling" 
+  description="Soluciones integrales en remodelación, instalación de pisos y demolición controlada en Sarasota. Calidad premium y limpieza garantizada.">
+  
+  <section class="relative bg-neutral-deep text-white py-24 lg:py-32 overflow-hidden">
+    <div class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
+    
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h1 class="font-heading text-4xl md:text-6xl font-bold tracking-tight mb-6">
+        Excelencia en cada etapa <br />
+        <span class="text-primary">de tu proyecto.</span>
+      </h1>
+      <p class="text-xl text-gray-300 max-w-3xl mx-auto font-light leading-relaxed">
+        No somos solo contratistas; somos artesanos del detalle. Desde la demolición inicial hasta el último acabado, garantizamos un proceso limpio, ordenado y de alta gama.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-20 bg-neutral-light relative -mt-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
+      <div class="grid md:grid-cols-3 gap-8">
+        
+        <article class="group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col h-full transform hover:-translate-y-2">
+          <div class="h-64 overflow-hidden relative">
+            <div class="absolute inset-0 bg-neutral-deep/20 group-hover:bg-transparent transition-colors z-10"></div>
+            <img 
+              src="https://images.unsplash.com/photo-1552321554-5fefe8832273?q=80&w=800&auto=format&fit=crop" 
+              alt="Remodelación de Baños" 
+              class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
+            />
+          </div>
+          <div class="p-8 flex-1 flex flex-col border-b-4 border-transparent group-hover:border-primary transition-colors">
+            <h3 class="font-heading text-2xl font-bold text-neutral-deep mb-3">Remodelación Integral</h3>
+            <p class="text-gray-600 mb-6 flex-1">
+              Transformamos baños y espacios interiores con diseños modernos y funcionales. Especialistas en optimización de espacios y acabados de lujo.
+            </p>
+            <ul class="text-sm text-gray-500 mb-8 space-y-2">
+              <li class="flex items-center gap-2">✓ Diseño de Baños Master</li>
+              <li class="flex items-center gap-2">✓ Gabinetes Custom</li>
+            </ul>
+            <a href="/es/servicios/remodelacion" class="inline-flex items-center font-bold text-primary group-hover:text-primary-dark transition-colors">
+              Explorar Remodelación 
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </a>
+          </div>
+        </article>
+
+        <article class="group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col h-full transform hover:-translate-y-2">
+          <div class="h-64 overflow-hidden relative">
+            <div class="absolute inset-0 bg-neutral-deep/20 group-hover:bg-transparent transition-colors z-10"></div>
+            <img 
+              src="https://images.unsplash.com/photo-1581858726768-7dd696e95263?auto=format&fit=crop&w=800&q=80" 
+              alt="Instalación de Pisos" 
+              class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
+            />
+          </div>
+          <div class="p-8 flex-1 flex flex-col border-b-4 border-transparent group-hover:border-primary transition-colors">
+            <h3 class="font-heading text-2xl font-bold text-neutral-deep mb-3">Instalación Experta</h3>
+            <p class="text-gray-600 mb-6 flex-1">
+              Instalación técnica de pisos (madera, porcelanato, vinil) y revestimientos de pared. Garantizamos nivelación perfecta y cortes precisos.
+            </p>
+            <ul class="text-sm text-gray-500 mb-8 space-y-2">
+              <li class="flex items-center gap-2">✓ Pisos y Paredes 3D</li>
+              <li class="flex items-center gap-2">✓ Backsplash de Cocina</li>
+            </ul>
+            <a href="/es/servicios/instalacion" class="inline-flex items-center font-bold text-primary group-hover:text-primary-dark transition-colors">
+              Explorar Instalación
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </a>
+          </div>
+        </article>
+
+        <article class="group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col h-full transform hover:-translate-y-2">
+          <div class="h-64 overflow-hidden relative">
+            <div class="absolute inset-0 bg-neutral-deep/20 group-hover:bg-transparent transition-colors z-10"></div>
+            <img 
+              src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=800&q=80" 
+              alt="Demolición Limpia" 
+              class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
+            />
+          </div>
+          <div class="p-8 flex-1 flex flex-col border-b-4 border-transparent group-hover:border-primary transition-colors">
+            <h3 class="font-heading text-2xl font-bold text-neutral-deep mb-3">Demolición General</h3>
+            <p class="text-gray-600 mb-6 flex-1">
+              El primer paso de una gran obra. Realizamos demoliciones controladas, seguras y con estricto manejo de escombros y polvo.
+            </p>
+            <ul class="text-sm text-gray-500 mb-8 space-y-2">
+              <li class="flex items-center gap-2">✓ Protección contra polvo</li>
+              <li class="flex items-center gap-2">✓ Retiro de escombros</li>
+            </ul>
+            <a href="/es/servicios/demolicion" class="inline-flex items-center font-bold text-primary group-hover:text-primary-dark transition-colors">
+              Explorar Demolición
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="bg-neutral-deep rounded-2xl overflow-hidden shadow-2xl flex flex-col md:flex-row">
+        <div class="md:w-1/2 p-12 flex flex-col justify-center text-white">
+          <h3 class="font-heading text-3xl font-bold mb-6">
+            Nuestra Promesa: <span class="text-primary">Tu hogar impecable.</span>
+          </h3>
+          <p class="text-gray-300 mb-8 text-lg leading-relaxed">
+            Sabemos que el polvo es la mayor pesadilla de una remodelación. Utilizamos tecnología de contención y sistemas de aspiración para garantizar que el resto de tu casa se mantenga habitable y limpio.
+          </p>
+          <div class="flex gap-4">
+             <div class="flex items-center gap-2 text-primary font-bold">
+                <span class="text-2xl">0%</span> Estrés
+             </div>
+             <div class="w-px bg-gray-600 h-8"></div>
+             <div class="flex items-center gap-2 text-primary font-bold">
+                <span class="text-2xl">100%</span> Transparencia
+             </div>
+          </div>
+        </div>
+        <div class="md:w-1/2 relative h-64 md:h-auto">
+             <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=800&q=80" alt="Clean construction site" class="absolute inset-0 w-full h-full object-cover opacity-80" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-neutral-light">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <h2 class="font-heading text-3xl font-bold text-neutral-deep mb-6">¿Listo para mejorar tu espacio?</h2>
+      <p class="text-gray-600 mb-8">Hablemos de tu proyecto hoy mismo.</p>
+      <a href={whatsappLink} target="_blank" rel="noopener noreferrer" class="inline-block bg-primary hover:bg-primary-dark text-black px-8 py-4 rounded-md font-bold text-lg transition-all shadow-lg hover:shadow-xl hover:-translate-y-1">
+        Solicitar Presupuesto General
+      </a>
+    </div>
+  </section>
+
+</Layout>
