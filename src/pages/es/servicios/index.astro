@@ -1,6 +1,13 @@
 ---
 // src/pages/es/servicios/index.astro
 import Layout from '../../../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+
+// Importación de Imágenes Optimizadas (Assets Locales)
+import remodelingImg from '../../../assets/Remodeling.jpg';
+import installationImg from '../../../assets/Installation.jpg';
+import demolitionImg from '../../../assets/Demolition.jpg';
+import servicesImg from '../../../assets/Services.jpg';
 
 // Mensaje WhatsApp
 const whatsappMsg = "Hola, me gustaría más información sobre sus servicios generales.";
@@ -32,10 +39,11 @@ const whatsappLink = `https://wa.me/19418961852?text=${encodeURIComponent(whatsa
         <article class="group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col h-full transform hover:-translate-y-2">
           <div class="h-64 overflow-hidden relative">
             <div class="absolute inset-0 bg-neutral-deep/20 group-hover:bg-transparent transition-colors z-10"></div>
-            <img 
-              src="https://images.unsplash.com/photo-1552321554-5fefe8832273?q=80&w=800&auto=format&fit=crop" 
-              alt="Remodelación de Baños" 
+            <Image 
+              src={remodelingImg} 
+              alt="Remodelación de Baños y Espacios" 
               class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
+              width={800}
             />
           </div>
           <div class="p-8 flex-1 flex flex-col border-b-4 border-transparent group-hover:border-primary transition-colors">
@@ -59,10 +67,11 @@ const whatsappLink = `https://wa.me/19418961852?text=${encodeURIComponent(whatsa
         <article class="group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col h-full transform hover:-translate-y-2">
           <div class="h-64 overflow-hidden relative">
             <div class="absolute inset-0 bg-neutral-deep/20 group-hover:bg-transparent transition-colors z-10"></div>
-            <img 
-              src="https://images.unsplash.com/photo-1581858726768-7dd696e95263?auto=format&fit=crop&w=800&q=80" 
-              alt="Instalación de Pisos" 
+            <Image 
+              src={installationImg} 
+              alt="Instalación de Pisos y Paredes" 
               class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
+              width={800}
             />
           </div>
           <div class="p-8 flex-1 flex flex-col border-b-4 border-transparent group-hover:border-primary transition-colors">
@@ -86,10 +95,11 @@ const whatsappLink = `https://wa.me/19418961852?text=${encodeURIComponent(whatsa
         <article class="group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col h-full transform hover:-translate-y-2">
           <div class="h-64 overflow-hidden relative">
             <div class="absolute inset-0 bg-neutral-deep/20 group-hover:bg-transparent transition-colors z-10"></div>
-            <img 
-              src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=800&q=80" 
-              alt="Demolición Limpia" 
+            <Image 
+              src={demolitionImg} 
+              alt="Demolición Limpia y Controlada" 
               class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
+              width={800}
             />
           </div>
           <div class="p-8 flex-1 flex flex-col border-b-4 border-transparent group-hover:border-primary transition-colors">
@@ -135,7 +145,12 @@ const whatsappLink = `https://wa.me/19418961852?text=${encodeURIComponent(whatsa
           </div>
         </div>
         <div class="md:w-1/2 relative h-64 md:h-auto">
-             <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=800&q=80" alt="Clean construction site" class="absolute inset-0 w-full h-full object-cover opacity-80" />
+             <Image 
+              src={servicesImg} 
+              alt="Cocina Remodelada Limpia" 
+              class="absolute inset-0 w-full h-full object-cover opacity-80"
+              width={800}
+            />
         </div>
       </div>
     </div>
