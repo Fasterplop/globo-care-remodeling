@@ -1,25 +1,31 @@
 /* src/styles/global.css */
 @import "tailwindcss";
+/* src/styles/global.css */
+@import "tailwindcss";
 
 @theme {
-  /* Paleta de Colores Globo Care */
-  --color-primary: #F39200;
-  --color-primary-dark: #d98200; /* Hover state */
+  /* Paleta de Colores Globo Care (Actualizada) */
+  --color-primary: #FF9500;       /* Nuevo Naranja solicitado */
+  --color-primary-dark: #e68600;  /* Versión más oscura para Hover */
   
-  --color-neutral-deep: #1A202C; /* Hero BG */
-  --color-neutral-light: #F7FAFC; /* Backgrounds */
+  --color-neutral-deep: #1A202C;  /* Se mantiene (Gris Oscuro) */
+  --color-neutral-light: #F7FAFC; /* Se mantiene (Off-white) */
   
   --color-status-success: #38A169;
   
-  /* Tipografías */
-  --font-sans: 'Inter', sans-serif;
-  --font-heading: 'Montserrat', sans-serif;
+  /* Tipografía Unificada: Open Sans */
+  --font-sans: 'Open Sans', sans-serif;
+  --font-heading: 'Open Sans', sans-serif;
 }
 
 /* Estilos base globales */
-html, body {
+html {
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+body {
   @apply h-full w-full;
   overflow-x: hidden;
 }
-
 

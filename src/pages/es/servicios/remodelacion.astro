@@ -1,0 +1,251 @@
+---
+// src/pages/es/servicios/remodelacion.astro
+import Layout from '../../../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+
+// Importamos activos
+import remodelingHero from '../../../assets/Remodeling.jpg';
+
+// Textos y Links de Contacto
+const whatsappBase = "https://wa.me/19418961852";
+const phoneLink = "tel:+19418961852";
+
+// Mensajes personalizados
+const msgGeneral = encodeURIComponent("Hola, estoy interesado en un estimado para una remodelación de baño o pisos.");
+const msgBath = encodeURIComponent("Hola, quisiera cotizar una remodelación de baño.");
+const msgFloors = encodeURIComponent("Hola, me interesa renovar los pisos de mi hogar.");
+---
+
+<Layout 
+  title="Remodelación de Baños, Pisos y Paredes en Sarasota | Globo Care Remodeling" 
+  description="Transformamos tus espacios con servicios profesionales de remodelación integral. Especialistas en baños y acabados de lujo en Sarasota. Solicita tu estimado gratis."
+>
+
+  {/* --- HERO SECTION --- */}
+  <section class="relative bg-neutral-deep text-white min-h-[60vh] flex items-center justify-center overflow-hidden">
+    <div class="absolute inset-0 z-0">
+      <Image 
+        src={remodelingHero} 
+        alt="Remodelación de Baños y Pisos en Sarasota" 
+        class="w-full h-full object-cover opacity-40"
+      />
+      <div class="absolute inset-0 bg-gradient-to-b from-neutral-deep/80 via-neutral-deep/50 to-neutral-deep/90"></div>
+    </div>
+
+    <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-20">
+      <h1 class="font-heading text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6 leading-tight">
+        Remodelación Profesional de <br />
+        <span class="text-primary">Baños, Pisos y Paredes</span>
+      </h1>
+      
+      <p class="text-lg md:text-xl text-gray-200 mb-10 font-light leading-relaxed max-w-2xl mx-auto">
+        Elevamos el valor y la estética de tu propiedad con proyectos de remodelación ejecutados con precisión artesanal y transparencia total.
+      </p>
+      
+      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+        <a href={`${whatsappBase}?text=${msgGeneral}`} target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto bg-primary hover:bg-primary-dark text-neutral-deep px-8 py-4 rounded-md font-bold text-lg transition-all shadow-[0_4px_14px_0_rgba(243,146,0,0.39)] hover:shadow-[0_6px_20px_rgba(243,146,0,0.23)] hover:-translate-y-1 text-center">
+          Obtener Estimado Gratis
+        </a>
+        
+        <a href="/es/galeria" class="w-full sm:w-auto group bg-transparent border-2 border-white hover:bg-white hover:text-neutral-deep text-white px-8 py-4 rounded-md font-bold text-lg transition-all text-center flex items-center justify-center gap-2">
+          Ver Proyectos Recientes
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  {/* --- DETALLE DE SERVICIOS (Estilo Editorial / Limpio) --- */}
+  <section class="py-24 bg-neutral-light relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-20">
+        <h2 class="font-heading text-3xl md:text-4xl font-bold text-neutral-deep mb-4">
+          Renovamos los rincones más <span class="text-primary">importantes</span> de tu hogar.
+        </h2>
+        <div class="h-1 w-24 bg-primary mx-auto rounded-full"></div>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8 lg:gap-12 items-stretch">
+        
+        {/* Card 1: Baños */}
+        <div class="relative bg-white p-8 pt-10 rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 border-t-4 border-primary group overflow-hidden h-full flex flex-col">
+           <div class="relative z-10 flex flex-col h-full">
+              <h3 class="font-heading text-2xl font-bold text-neutral-deep mb-4">Remodelación de Baños</h3>
+              <p class="text-gray-600 leading-relaxed mb-8 text-sm flex-grow">
+                Desde el cambio de accesorios hasta la renovación completa de la estructura. Creamos espacios funcionales con acabados de alta gama, optimizando la ventilación, iluminación y almacenamiento mediante vanities a medida e impermeabilización garantizada.
+              </p>
+              <a href={`${whatsappBase}?text=${msgBath}`} target="_blank" rel="noopener noreferrer" class="inline-flex items-center font-bold text-primary hover:text-primary-dark transition-colors uppercase tracking-wider text-sm">
+                Cotizar mi baño
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+              </a>
+           </div>
+        </div>
+
+        {/* Card 2: Pisos y Paredes */}
+        <div class="relative bg-white p-8 pt-10 rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 border-t-4 border-neutral-deep group overflow-hidden h-full flex flex-col">
+           <div class="relative z-10 flex flex-col h-full">
+              <h3 class="font-heading text-2xl font-bold text-neutral-deep mb-4">Renovación de Pisos y Paredes</h3>
+              <p class="text-gray-600 leading-relaxed mb-8 text-sm flex-grow">
+                Actualizamos sus superficies con materiales modernos que definen el estilo de cada habitación. Ya sea laminado, vinil, madera o acentos de pared, garantizamos una integración perfecta con la arquitectura existente, asegurando nivelación y durabilidad.
+              </p>
+              <a href={`${whatsappBase}?text=${msgFloors}`} target="_blank" rel="noopener noreferrer" class="inline-flex items-center font-bold text-primary hover:text-primary-dark transition-colors uppercase tracking-wider text-sm">
+                Cotizar mis pisos
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+              </a>
+           </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  {/* --- EL ESTÁNDAR DE CALIDAD (Layout Asimétrico) --- */}
+  <section class="py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-2 gap-16 items-center">
+        
+        {/* Columna Izquierda: Título y Contexto */}
+        <div>
+           <h2 class="font-heading text-3xl md:text-4xl font-bold text-neutral-deep mb-6 leading-tight">
+             El estándar de calidad que <span class="text-primary">tu hogar merece</span>.
+           </h2>
+           <p class="text-gray-600 text-lg leading-relaxed mb-8">
+             No improvisamos. Cada proyecto de remodelación sigue un proceso estructurado para asegurar que el resultado final supere sus expectativas, sin sorpresas ni costos ocultos.
+           </p>
+           <a href={phoneLink} class="hidden md:inline-block bg-neutral-deep text-white px-8 py-3 rounded-md font-bold hover:bg-black transition-colors">
+             Agendar Visita Técnica
+           </a>
+        </div>
+
+        {/* Columna Derecha: Valores con Líneas */}
+        <div class="space-y-8">
+          
+          <div class="flex gap-6 group">
+            {/* Línea Vertical de Acento */}
+            <div class="w-1 bg-gray-200 group-hover:bg-primary transition-colors h-auto rounded-full"></div>
+            <div>
+               <h3 class="text-xl font-bold text-neutral-deep mb-2">Confianza Local</h3>
+               <p class="text-gray-500 leading-relaxed">
+                 Conocemos los estándares y exigencias de las familias en Sarasota. Somos sus vecinos y socios en la mejora de su hogar.
+               </p>
+            </div>
+          </div>
+
+          <div class="flex gap-6 group">
+            <div class="w-1 bg-gray-200 group-hover:bg-primary transition-colors h-auto rounded-full"></div>
+            <div>
+               <h3 class="text-xl font-bold text-neutral-deep mb-2">Resultados Tangibles</h3>
+               <p class="text-gray-500 leading-relaxed">
+                 Nuestra galería de proyectos refleja la precisión en cada acabado. Lo que ve es lo que entregamos.
+               </p>
+            </div>
+          </div>
+
+          <div class="flex gap-6 group">
+            <div class="w-1 bg-gray-200 group-hover:bg-primary transition-colors h-auto rounded-full"></div>
+            <div>
+               <h3 class="text-xl font-bold text-neutral-deep mb-2">Transparencia Total</h3>
+               <p class="text-gray-500 leading-relaxed">
+                 Ofrecemos estimados claros y detallados desde el primer contacto. Sin letras pequeñas.
+               </p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  {/* --- CONVERSION / MICROCOPY --- */}
+  <section class="py-16 bg-neutral-light border-y border-gray-100">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <h2 class="font-heading text-3xl font-bold text-neutral-deep mb-8">
+        Tu nueva casa comienza con una conversación.
+      </h2>
+      
+      <div class="flex flex-col md:flex-row gap-6 justify-center">
+        <a href={`${whatsappBase}?text=${msgGeneral}`} target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-3 bg-[#25D366] hover:bg-[#128C7E] text-white px-8 py-4 rounded-lg font-bold text-lg transition-all shadow-lg hover:shadow-xl hover:-translate-y-1">
+          <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.013 6.17 1.242 8.413 3.491 2.243 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.506-.669-.516-.173-.009-.371-.009-.569-.009-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+          Chat con un especialista
+        </a>
+
+        <a href={phoneLink} class="flex items-center justify-center gap-3 bg-neutral-deep hover:bg-black text-white px-8 py-4 rounded-lg font-bold text-lg transition-all shadow-lg hover:shadow-xl hover:-translate-y-1">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+          </svg>
+          Hablar con un experto
+        </a>
+      </div>
+    </div>
+  </section>
+
+  {/* --- PRUEBA SOCIAL --- */}
+  <section class="py-20 bg-white">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <h2 class="font-heading text-3xl font-bold text-neutral-deep mb-12">
+        Transformaciones que hablan por sí solas.
+      </h2>
+      
+      <blockquote class="text-xl md:text-2xl italic text-gray-600 mb-8 relative px-8">
+        <span class="text-6xl text-primary absolute -top-8 left-0 opacity-20">"</span>
+        La atención al detalle en la remodelación de nuestro baño principal fue excepcional. Todo el proceso fue profesional y limpio.
+        <span class="text-6xl text-primary absolute -bottom-12 right-0 opacity-20">"</span>
+      </blockquote>
+      
+      <div class="flex flex-col items-center">
+        <div class="w-12 h-1 bg-primary mb-4 rounded-full"></div>
+        <p class="font-bold text-neutral-deep">— Familia Roberts, Sarasota</p>
+        <span class="text-sm text-gray-500">Proyecto de Remodelación de Baño Master</span>
+      </div>
+    </div>
+  </section>
+
+  {/* --- ENLACES INTERNOS SUGERIDOS --- */}
+  <section class="py-16 bg-neutral-light">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h3 class="font-heading text-xl font-bold text-gray-400 uppercase tracking-widest text-center mb-10">Sigue explorando nuestros servicios</h3>
+      
+      <div class="grid md:grid-cols-3 gap-6">
+        <a href="/es/servicios/instalacion" class="group block p-6 bg-white rounded-xl hover:shadow-lg transition-all border border-transparent hover:border-primary/20">
+          <div class="flex items-center gap-4 mb-2">
+            <div class="bg-neutral-light p-2 rounded-lg shadow-sm group-hover:bg-primary group-hover:text-white transition-colors text-neutral-deep">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+              </svg>
+            </div>
+            <h4 class="font-bold text-neutral-deep text-lg group-hover:text-primary transition-colors">Instalación</h4>
+          </div>
+          <p class="text-sm text-gray-500 pl-[3.25rem]">Acabados de pisos y paredes.</p>
+        </a>
+
+        <a href="/es/galeria" class="group block p-6 bg-white rounded-xl hover:shadow-lg transition-all border border-transparent hover:border-primary/20">
+          <div class="flex items-center gap-4 mb-2">
+            <div class="bg-neutral-light p-2 rounded-lg shadow-sm group-hover:bg-primary group-hover:text-white transition-colors text-neutral-deep">
+               <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+              </svg>
+            </div>
+            <h4 class="font-bold text-neutral-deep text-lg group-hover:text-primary transition-colors">Galería</h4>
+          </div>
+          <p class="text-sm text-gray-500 pl-[3.25rem]">Inspírate con el antes y después.</p>
+        </a>
+
+        <a href="/es/nosotros" class="group block p-6 bg-white rounded-xl hover:shadow-lg transition-all border border-transparent hover:border-primary/20">
+          <div class="flex items-center gap-4 mb-2">
+             <div class="bg-neutral-light p-2 rounded-lg shadow-sm group-hover:bg-primary group-hover:text-white transition-colors text-neutral-deep">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+              </svg>
+            </div>
+            <h4 class="font-bold text-neutral-deep text-lg group-hover:text-primary transition-colors">Nosotros</h4>
+          </div>
+          <p class="text-sm text-gray-500 pl-[3.25rem]">Conoce nuestro equipo.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</Layout>

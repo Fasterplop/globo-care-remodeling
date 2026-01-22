@@ -1,8 +1,8 @@
 ---
 // src/layouts/Layout.astro
 import '../styles/global.css';
-import '@fontsource/montserrat';
-import '@fontsource/inter';
+// Importamos solo Open Sans
+import '@fontsource/open-sans';
 import { getLangFromUrl, useTranslations } from '../i18n/utils';
 
 interface Props {
@@ -16,37 +16,28 @@ const t = useTranslations(lang);
 
 const currentPath = Astro.url.pathname;
 
-// --- LÓGICA DE TRADUCCIÓN DE RUTAS (FIX) ---
-// Mapa de equivalencias exactas para las URLs
+// --- LÓGICA DE TRADUCCIÓN DE RUTAS ---
 const routeMap: Record<string, string> = {
-    // De Inglés a Español
     '/services': '/es/servicios',
     '/gallery': '/es/galeria',
     '/about': '/es/nosotros',
     '/contact': '/es/contacto',
-    // De Español a Inglés
     '/es/servicios': '/services',
     '/es/galeria': '/gallery',
     '/es/nosotros': '/about',
     '/es/contacto': '/contact',
 };
 
-// Función para calcular la ruta contraria
 function getTranslatedPath(path: string, targetLang: 'en' | 'es') {
-    // 1. Normalizar path (quitar slash final si no es la raíz para comparar bien)
     const cleanPath = path !== '/' && path.endsWith('/') ? path.slice(0, -1) : path;
     
-    // 2. Buscar traducción directa en el mapa
     if (routeMap[cleanPath]) {
         return routeMap[cleanPath];
     }
 
-    // 3. Fallback: Lógica estándar para Home u otras rutas no mapeadas
     if (targetLang === 'es') {
-        // Si quiero ir a español y no estoy en español, agrego /es
         return path.startsWith('/es') ? path : `/es${path === '/' ? '' : path}`;
     } else {
-        // Si quiero ir a inglés, quito /es
         return path.startsWith('/es') ? (path.replace('/es', '') || '/') : path;
     }
 }
@@ -54,7 +45,7 @@ function getTranslatedPath(path: string, targetLang: 'en' | 'es') {
 const esPath = getTranslatedPath(currentPath, 'es');
 const enPath = getTranslatedPath(currentPath, 'en');
 
-// CTA y WhatsApp Config
+// Configuración CTA y WhatsApp
 const ctaText = lang === 'es' ? 'Solicitar Estimado' : 'Free Estimate';
 const whatsappMsg = lang === 'es' 
     ? "Hola, quisiera solicitar un estimado gratuito para mi proyecto." 
