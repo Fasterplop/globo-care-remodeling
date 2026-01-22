@@ -1,0 +1,272 @@
+---
+// src/pages/es/galeria.astro
+import Layout from '../../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+
+// Importación de Imágenes Locales
+import imgRemodeling from '../../assets/Remodeling.jpg';
+import imgInstallation from '../../assets/Installation.jpg';
+import imgDemolition from '../../assets/Demolition.jpg';
+import imgServices from '../../assets/Services.jpg';
+
+// Datos de la página
+const title = "Galería de Proyectos de Remodelación en Sarasota | Globo Care Remodeling";
+const description = "Explore nuestras transformaciones reales. Galería de remodelación de baños, pisos y demolición profesional en Sarasota.";
+
+// Textos
+const texts = {
+  heading: "Explore nuestra experiencia por categoría",
+  subheading: "Utilice los filtros para ver proyectos específicos que se ajusten a sus necesidades actuales.",
+  ctaTitle: "¿Listo para ver su hogar en nuestra galería?",
+  ctaCopy: "Permítanos llevar el siguiente nivel de calidad a su propiedad. Contáctenos hoy para una asesoría personalizada.",
+  btnWhatsapp: "Consultar sobre un proyecto",
+  btnCall: "Llamar Ahora",
+};
+
+// Datos de proyectos
+const projects = [
+  { 
+    id: 1, 
+    category: 'banos', 
+    title: 'Remodelación Integral', 
+    img: imgRemodeling,
+    alt: 'Remodelación de baño y cocina en Sarasota'
+  },
+  { 
+    id: 2, 
+    category: 'pisos', 
+    title: 'Instalación de Pisos', 
+    img: imgInstallation,
+    alt: 'Instalación profesional de pisos laminados y cerámica'
+  },
+  { 
+    id: 3, 
+    category: 'demolicion', 
+    title: 'Demolición y Preparación', 
+    img: imgDemolition,
+    alt: 'Servicio de demolición limpia y controlada'
+  },
+  { 
+    id: 4, 
+    category: 'paredes', 
+    title: 'Acabados Generales', 
+    img: imgServices,
+    alt: 'Servicios generales de construcción y acabados'
+  },
+  // Items de relleno
+  { 
+    id: 5, 
+    category: 'banos', 
+    title: 'Detalles de Acabado', 
+    img: imgRemodeling,
+    alt: 'Detalle de acabados de lujo'
+  },
+  { 
+    id: 6, 
+    category: 'pisos', 
+    title: 'Nivelación de Suelos', 
+    img: imgInstallation,
+    alt: 'Preparación y nivelación de superficies'
+  },
+];
+
+const categories = [
+  { id: 'all', label: 'Todos los Proyectos' },
+  { id: 'banos', label: 'Baños y Cocinas' },
+  { id: 'pisos', label: 'Pisos' },
+  { id: 'paredes', label: 'Paredes y Acabados' },
+  { id: 'demolicion', label: 'Demolición' },
+];
+
+const whatsappLink = "https://wa.me/19418961852?text=Hola,%20vi%20su%20galer%C3%ADa%20y%20me%20interesa%20un%20proyecto.";
+const phoneLink = "tel:+19418961852";
+---
+
+<Layout title={title} description={description}>
+  
+  <section class="bg-neutral-light py-16 md:py-24 border-b border-gray-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h1 class="font-heading text-4xl md:text-5xl font-bold text-neutral-deep mb-6">
+        {texts.heading}
+      </h1>
+      <p class="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
+        {texts.subheading}
+      </p>
+
+      <div class="mt-10 flex flex-wrap justify-center gap-3" id="portfolio-filters">
+        {categories.map((cat, index) => (
+          <button
+            class={`filter-btn px-6 py-2 rounded-full text-sm font-bold transition-all border-2 
+              ${index === 0 
+                ? 'bg-neutral-deep text-white border-neutral-deep shadow-lg' 
+                : 'bg-white text-gray-500 border-transparent hover:border-primary hover:text-primary'}`}
+            data-filter={cat.id}
+          >
+            {cat.label}
+          </button>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-white py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8" id="gallery-grid">
+        {projects.map((project) => (
+          <div 
+            class="group relative overflow-hidden rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer project-item bg-gray-100 aspect-[4/3]"
+            data-category={project.category}
+            onclick={`openLightbox('${project.img.src}', '${project.title}')`}
+          >
+            <Image 
+              src={project.img} 
+              alt={project.alt}
+              width={600}
+              class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
+            />
+            
+            <div class="absolute inset-0 bg-neutral-deep/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+              <span class="text-primary font-bold text-sm uppercase tracking-wider mb-1">
+                {categories.find(c => c.id === project.category)?.label}
+              </span>
+              <h3 class="text-white font-heading font-bold text-xl">
+                {project.title}
+              </h3>
+              <div class="mt-4 inline-flex items-center text-white/80 text-sm gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" /></svg>
+                Ver Ampliado
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div id="no-results" class="hidden text-center py-20">
+        <p class="text-gray-500 text-lg">No hay proyectos en esta categoría por el momento.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <div id="lightbox" class="fixed inset-0 z-[60] bg-neutral-deep/95 hidden backdrop-blur-sm transition-opacity duration-300 opacity-0" aria-hidden="true">
+    <button 
+      onclick="closeLightbox()" 
+      class="absolute top-4 right-4 z-[70] p-2 bg-black/40 hover:bg-primary text-white rounded-full transition-colors focus:outline-none"
+    >
+      <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+
+    <div class="flex items-center justify-center h-full w-full p-4 sm:p-8" onclick="closeLightbox()">
+        <img 
+            id="lightbox-img" 
+            src="" 
+            alt="Vista previa" 
+            class="max-h-[85vh] max-w-full w-auto h-auto object-contain rounded-md shadow-2xl select-none"
+            onclick="event.stopPropagation()" 
+        />
+        <p id="lightbox-caption" class="absolute bottom-6 left-0 right-0 text-center text-white text-lg font-medium drop-shadow-md pointer-events-none px-4">
+        </p>
+    </div>
+  </div>
+
+  <section class="bg-neutral-light py-20 border-t border-gray-200">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <h2 class="font-heading text-3xl md:text-4xl font-bold mb-6 text-neutral-deep">
+        {texts.ctaTitle}
+      </h2>
+      <p class="text-gray-600 text-lg mb-10 max-w-2xl mx-auto">
+        {texts.ctaCopy}
+      </p>
+      
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <a 
+          href={whatsappLink} 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          class="bg-primary hover:bg-primary-dark text-black px-8 py-4 rounded-md font-bold text-lg transition-all shadow-lg hover:shadow-orange-500/20 hover:-translate-y-1 flex items-center justify-center gap-2"
+        >
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+          {texts.btnWhatsapp}
+        </a>
+        
+        <a 
+          href={phoneLink} 
+          class="bg-transparent border-2 border-neutral-deep text-neutral-deep hover:bg-neutral-deep hover:text-white px-8 py-4 rounded-md font-bold text-lg transition-all flex items-center justify-center gap-2"
+        >
+          {texts.btnCall}
+        </a>
+      </div>
+    </div>
+  </section>
+
+</Layout>
+
+<script is:inline>
+  // --- Filtros ---
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const projectItems = document.querySelectorAll('.project-item');
+  const noResults = document.getElementById('no-results');
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => {
+        b.classList.remove('bg-neutral-deep', 'text-white', 'border-neutral-deep', 'shadow-lg');
+        b.classList.add('bg-white', 'text-gray-500', 'border-transparent');
+      });
+      btn.classList.remove('bg-white', 'text-gray-500', 'border-transparent');
+      btn.classList.add('bg-neutral-deep', 'text-white', 'border-neutral-deep', 'shadow-lg');
+
+      const filterValue = btn.getAttribute('data-filter');
+      let hasVisible = false;
+
+      projectItems.forEach(item => {
+        if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+          item.classList.remove('hidden');
+          item.style.animation = 'fadeIn 0.5s ease forwards';
+          hasVisible = true;
+        } else {
+          item.classList.add('hidden');
+        }
+      });
+      
+      noResults.classList.toggle('hidden', hasVisible);
+    });
+  });
+
+  // --- Lightbox ---
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  const lightboxCaption = document.getElementById('lightbox-caption');
+
+  window.openLightbox = (src, title) => {
+    lightboxImg.src = src;
+    lightboxCaption.textContent = title;
+    lightbox.classList.remove('hidden');
+    requestAnimationFrame(() => {
+        lightbox.classList.remove('opacity-0');
+    });
+    document.body.style.overflow = 'hidden';
+  };
+
+  window.closeLightbox = () => {
+    lightbox.classList.add('opacity-0');
+    setTimeout(() => {
+      lightbox.classList.add('hidden');
+      lightboxImg.src = '';
+      document.body.style.overflow = '';
+    }, 300);
+  };
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') window.closeLightbox();
+  });
+
+  const style = document.createElement('style');
+  style.textContent = `
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+  `;
+  document.head.appendChild(style);
+</script>

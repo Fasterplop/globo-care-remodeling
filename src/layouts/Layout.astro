@@ -1,7 +1,6 @@
 ---
 // src/layouts/Layout.astro
 import '../styles/global.css';
-// Importamos solo Open Sans
 import '@fontsource/open-sans';
 import { getLangFromUrl, useTranslations } from '../i18n/utils';
 
@@ -16,25 +15,40 @@ const t = useTranslations(lang);
 
 const currentPath = Astro.url.pathname;
 
-// --- LÓGICA DE TRADUCCIÓN DE RUTAS ---
+// --- LÓGICA DE TRADUCCIÓN DE RUTAS (ACTUALIZADA) ---
+// Aquí definimos explícitamente las equivalencias entre páginas EN y ES
 const routeMap: Record<string, string> = {
+    // Páginas Principales
     '/services': '/es/servicios',
     '/gallery': '/es/galeria',
     '/about': '/es/nosotros',
     '/contact': '/es/contacto',
+    
+    // Subpáginas de Servicios (NUEVO: Traducciones específicas)
+    '/services/remodeling': '/es/servicios/remodelacion',
+    '/services/installation': '/es/servicios/instalacion',
+    '/services/demolition': '/es/servicios/demolicion',
+
+    // Inversos (ES -> EN)
     '/es/servicios': '/services',
     '/es/galeria': '/gallery',
     '/es/nosotros': '/about',
     '/es/contacto': '/contact',
+    '/es/servicios/remodelacion': '/services/remodeling',
+    '/es/servicios/instalacion': '/services/installation',
+    '/es/servicios/demolicion': '/services/demolition',
 };
 
 function getTranslatedPath(path: string, targetLang: 'en' | 'es') {
+    // Limpiamos el slash final si existe (excepto en root)
     const cleanPath = path !== '/' && path.endsWith('/') ? path.slice(0, -1) : path;
     
+    // 1. Buscamos coincidencia exacta en el mapa manual
     if (routeMap[cleanPath]) {
         return routeMap[cleanPath];
     }
 
+    // 2. Fallback: Lógica automática estándar
     if (targetLang === 'es') {
         return path.startsWith('/es') ? path : `/es${path === '/' ? '' : path}`;
     } else {
@@ -48,9 +62,12 @@ const enPath = getTranslatedPath(currentPath, 'en');
 // Configuración CTA y WhatsApp
 const ctaText = lang === 'es' ? 'Solicitar Estimado' : 'Free Estimate';
 const whatsappMsg = lang === 'es' 
-    ? "Hola, quisiera solicitar un estimado gratuito para mi proyecto." 
+    ? "Hola, quisiera solicitar un estimado gratuito para mi proyecto."
     : "Hello, I would like to request a free estimate for my project.";
 const whatsappLink = `https://wa.me/19418961852?text=${encodeURIComponent(whatsappMsg)}`;
+
+// Texto de Créditos (Dinamico)
+const designedBy = lang === 'es' ? 'Diseñado y Desarrollado por' : 'Designed and Developed by';
 ---
 
 <!doctype html>
@@ -63,7 +80,7 @@ const whatsappLink = `https://wa.me/19418961852?text=${encodeURIComponent(whatsa
 		<meta name="generator" content={Astro.generator} />
 		<title>{title} | Globo Care Remodeling</title>
 	</head>
-	<body class="font-sans text-neutral-deep bg-neutral-light antialiased">
+	<body class="font-sans text-neutral-deep bg-neutral-light antialiased flex flex-col min-h-screen">
 		<header class="sticky top-0 z-50 w-full bg-white/95 backdrop-blur-sm border-b border-gray-100 transition-all duration-300">
 			<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 				<div class="flex justify-between items-center h-20">
@@ -110,7 +127,7 @@ const whatsappLink = `https://wa.me/19418961852?text=${encodeURIComponent(whatsa
 							{ctaText}
 						</a>
 					</div>
-                    
+                     
                     <div class="md:hidden flex items-center z-50">
                         <button id="mobile-menu-btn" class="text-neutral-deep hover:text-primary p-2 focus:outline-none" aria-label="Menu">
                             <svg id="icon-open" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -158,13 +175,30 @@ const whatsappLink = `https://wa.me/19418961852?text=${encodeURIComponent(whatsa
             </div>
 		</header>
 
-		<main>
+		<main class="flex-grow">
 			<slot />
 		</main>
 
-		<footer class="bg-neutral-deep text-white py-12 mt-20">
+        <footer class="bg-neutral-deep text-white py-12 mt-20 border-t border-gray-800">
 			<div class="max-w-7xl mx-auto px-4 text-center">
-				<p class="text-gray-400 text-sm">© {new Date().getFullYear()} Globo Care Remodeling. {t('footer.rights')}</p>
+				<p class="text-gray-400 text-sm mb-4">
+                    © {new Date().getFullYear()} Globo Care Remodeling. {t('footer.rights')}
+                </p>
+                
+                <div class="w-12 h-px bg-gray-700 mx-auto mb-4"></div>
+                
+                <p class="text-gray-500 text-xs tracking-wide">
+                    {designedBy} 
+                    <a 
+                        href="https://hikevodesign.com" 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        class="text-gray-400 hover:text-primary transition-colors duration-300 font-semibold ml-1"
+                        aria-label="Hikevo Design Website"
+                    >
+                        Hikevo Design
+                    </a>
+                </p>
 			</div>
 		</footer>
 
