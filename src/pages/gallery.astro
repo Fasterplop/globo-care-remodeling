@@ -3,11 +3,45 @@
 import Layout from '../layouts/Layout.astro';
 import { Image } from 'astro:assets';
 
-// Local Image Imports
-import imgRemodeling from '../assets/Remodeling.jpg';
-import imgInstallation from '../assets/Installation.jpg';
-import imgDemolition from '../assets/Demolition.jpg';
-import imgServices from '../assets/Services.jpg';
+// Bathrooms
+import imgBano1 from '../assets/banos/bano1.jpg';
+import imgBano2 from '../assets/banos/bano2.jpg';
+import imgBano3 from '../assets/banos/bano3.jpg';
+import imgBano4 from '../assets/banos/bano4.jpg';
+import imgBano5 from '../assets/banos/bano5.jpg';
+import imgBano6 from '../assets/banos/bano6.jpg';
+import imgBano7 from '../assets/banos/bano7.jpg';
+import imgBano8 from '../assets/banos/bano8.jpg';
+import imgBano9 from '../assets/banos/bano9.jpg';
+import imgBano10 from '../assets/banos/bano10.jpg';
+import imgBano11 from '../assets/banos/bano11.jpg';
+
+// Demolition
+import imgDemo1 from '../assets/demolicion/demolicion1.jpg';
+import imgDemo2 from '../assets/demolicion/demolicion2.jpg';
+
+// Walls
+import imgPared1 from '../assets/paredes/pared1.jpg';
+import imgPared2 from '../assets/paredes/pared2.jpg';
+import imgPared3 from '../assets/paredes/pared3.jpg';
+import imgPared4 from '../assets/paredes/pared4.jpg';
+import imgPared5 from '../assets/paredes/pared5.jpg';
+import imgPared6 from '../assets/paredes/pared6.jpg';
+
+// Floors
+import imgPiso1 from '../assets/pisos/piso1.jpg';
+import imgPiso2 from '../assets/pisos/piso2.jpg';
+import imgPiso3 from '../assets/pisos/piso3.jpg';
+import imgPiso4 from '../assets/pisos/piso4.jpg';
+import imgPiso5 from '../assets/pisos/piso5.jpg';
+import imgPiso6 from '../assets/pisos/piso6.jpg';
+import imgPiso7 from '../assets/pisos/piso7.jpg';
+import imgPiso8 from '../assets/pisos/piso8.jpg';
+import imgPiso9 from '../assets/pisos/piso9.jpg';
+import imgPiso10 from '../assets/pisos/piso10.jpg';
+import imgPiso11 from '../assets/pisos/piso11.jpg';
+import imgPiso12 from '../assets/pisos/piso12.jpg';
+import imgPiso13 from '../assets/pisos/piso13.jpg';
 
 // Page Data
 const title = "Remodeling Project Gallery in Sarasota | Globo Care Remodeling";
@@ -25,49 +59,45 @@ const texts = {
 
 // Project Data
 const projects = [
-  { 
-    id: 1, 
-    category: 'banos', 
-    title: 'Full Bathroom Remodel', 
-    img: imgRemodeling,
-    alt: 'Bathroom and kitchen remodeling in Sarasota'
-  },
-  { 
-    id: 2, 
-    category: 'pisos', 
-    title: 'Professional Flooring', 
-    img: imgInstallation,
-    alt: 'Professional installation of laminate and tile flooring'
-  },
-  { 
-    id: 3, 
-    category: 'demolicion', 
-    title: 'Clean Demolition', 
-    img: imgDemolition,
-    alt: 'Clean and controlled demolition service'
-  },
-  { 
-    id: 4, 
-    category: 'paredes', 
-    title: 'Finishes & Walls', 
-    img: imgServices,
-    alt: 'General construction and finishing services'
-  },
-  // Filler items
-  { 
-    id: 5, 
-    category: 'banos', 
-    title: 'Luxury Details', 
-    img: imgRemodeling,
-    alt: 'Luxury finishing details'
-  },
-  { 
-    id: 6, 
-    category: 'pisos', 
-    title: 'Floor Leveling', 
-    img: imgInstallation,
-    alt: 'Surface preparation and leveling'
-  },
+  // --- BATHROOMS ---
+  { id: 101, category: 'banos', title: 'Modern Bathroom Remodel', img: imgBano1, alt: 'Bathroom transformation in Sarasota' },
+  { id: 102, category: 'banos', title: 'Shower Installation', img: imgBano2, alt: 'Custom shower tile installation' },
+  { id: 103, category: 'banos', title: 'Vanity Update', img: imgBano3, alt: 'New vanity and mirror setup' },
+  { id: 104, category: 'banos', title: 'Master Bath Renovation', img: imgBano4, alt: 'Complete master bathroom overhaul' },
+  { id: 105, category: 'banos', title: 'Tile & Fixtures', img: imgBano5, alt: 'Elegant tile work and modern fixtures' },
+  { id: 106, category: 'banos', title: 'Compact Bath Design', img: imgBano6, alt: 'Maximizing space in small bathrooms' },
+  { id: 107, category: 'banos', title: 'Luxury Finishes', img: imgBano7, alt: 'High-end bathroom finishes' },
+  { id: 108, category: 'banos', title: 'Walk-in Shower', img: imgBano8, alt: 'Spacious walk-in shower design' },
+  { id: 109, category: 'banos', title: 'Bathtub Upgrade', img: imgBano9, alt: 'Modern bathtub installation' },
+  { id: 110, category: 'banos', title: 'Lighting & Flooring', img: imgBano10, alt: 'Bathroom lighting and water-resistant flooring' },
+  { id: 111, category: 'banos', title: 'Clean & Bright Bath', img: imgBano11, alt: 'Bright and clean bathroom aesthetic' },
+
+  // --- DEMOLITION ---
+  { id: 201, category: 'demolicion', title: 'Site Demolition', img: imgDemo1, alt: 'Safe and controlled demolition' },
+  { id: 202, category: 'demolicion', title: 'Debris Removal', img: imgDemo2, alt: 'Clean debris removal and prep' },
+
+  // --- WALLS & FINISHES ---
+  { id: 301, category: 'paredes', title: 'Drywall Installation', img: imgPared1, alt: 'Professional drywall installation' },
+  { id: 302, category: 'paredes', title: 'Smooth Finishes', img: imgPared2, alt: 'Perfectly smooth wall finishing' },
+  { id: 303, category: 'paredes', title: 'Wall Painting', img: imgPared3, alt: 'Interior painting and detailing' },
+  { id: 304, category: 'paredes', title: 'Interior Textures', img: imgPared4, alt: 'Textured wall application' },
+  { id: 305, category: 'paredes', title: 'Framing & Drywall', img: imgPared5, alt: 'Structural framing and boarding' },
+  { id: 306, category: 'paredes', title: 'Detail Sanding', img: imgPared6, alt: 'Attention to detail in sanding' },
+
+  // --- FLOORING ---
+  { id: 401, category: 'pisos', title: 'Tile Flooring', img: imgPiso1, alt: 'Ceramic tile flooring installation' },
+  { id: 402, category: 'pisos', title: 'Laminate Installation', img: imgPiso2, alt: 'Wood-look laminate flooring' },
+  { id: 403, category: 'pisos', title: 'Hardwood Floors', img: imgPiso3, alt: 'Classic hardwood floor finish' },
+  { id: 404, category: 'pisos', title: 'Modern Tiling', img: imgPiso4, alt: 'Large format modern tiles' },
+  { id: 405, category: 'pisos', title: 'Vinyl Plank', img: imgPiso5, alt: 'Durable vinyl plank flooring' },
+  { id: 406, category: 'pisos', title: 'Floor Leveling', img: imgPiso6, alt: 'Subfloor preparation and leveling' },
+  { id: 407, category: 'pisos', title: 'Patterned Tile', img: imgPiso7, alt: 'Intricate tile patterns' },
+  { id: 408, category: 'pisos', title: 'Kitchen Flooring', img: imgPiso8, alt: 'Durable kitchen floor installation' },
+  { id: 409, category: 'pisos', title: 'Living Room Floors', img: imgPiso9, alt: 'Cozy living area flooring' },
+  { id: 410, category: 'pisos', title: 'Entryway Tiling', img: imgPiso10, alt: 'Welcoming entryway tiles' },
+  { id: 411, category: 'pisos', title: 'Bedroom Flooring', img: imgPiso11, alt: 'Comfortable bedroom flooring' },
+  { id: 412, category: 'pisos', title: 'Baseboard Detail', img: imgPiso12, alt: 'Flooring and baseboard finishing' },
+  { id: 413, category: 'pisos', title: 'Polished Finish', img: imgPiso13, alt: 'High-gloss floor finish' },
 ];
 
 // Categories
