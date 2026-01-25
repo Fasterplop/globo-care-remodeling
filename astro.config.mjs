@@ -6,7 +6,7 @@ import tailwindcss from '@tailwindcss/vite';
 import cloudflare from '@astrojs/cloudflare';
 
 export default defineConfig({
-  site: 'https://globocareremodeling.com',
+  site: 'https://globocareremodeling.net',
   integrations: [sitemap()],
 
   vite: {
