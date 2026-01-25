@@ -2,7 +2,11 @@
 // src/pages/es/index.astro
 import Layout from '../../layouts/Layout.astro';
 import BeforeAfter from '../../components/BeforeAfter.astro';
-
+import { Image } from 'astro:assets';
+// Nota que aquí usamos ../../ para salir de "es" y de "pages" hasta "src"
+import project1 from '../../assets/banos/bano1.jpg';
+import project2 from '../../assets/pisos/piso1.jpg';
+import project3 from '../../assets/paredes/pared1.jpg';
 // CAMBIO: Definimos el link directo al contacto
 const contactLink = "/es/contacto";
 ---
@@ -63,51 +67,107 @@ const contactLink = "/es/contacto";
     </div>
   </section>
 
-  <section class="py-20 bg-white">
+ <section class="py-20 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-16">
          <h2 class="font-heading text-3xl md:text-4xl font-bold text-neutral-deep">
           Soluciones integrales de remodelación e instalación.
         </h2>
       </div>
+      
       <div class="grid md:grid-cols-3 gap-8">
-        <div class="bg-neutral-light p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+        
+        <div class="bg-neutral-light p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow flex flex-col h-full">
           <h3 class="font-heading text-xl font-bold text-neutral-deep mb-3">Remodelación Profesional</h3>
           <p class="text-gray-600 mb-6">Renovación completa de baños, pisos y espacios interiores con atención al detalle.</p>
-          <a href="/es/servicios/remodelacion" class="text-primary font-bold hover:underline">Ver más sobre Remodelación &rarr;</a>
+          <a href="/es/servicios/remodelacion" class="text-primary font-bold hover:underline mt-auto">Ver más sobre Remodelación &rarr;</a>
         </div>
-        <div class="bg-neutral-light p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+        
+        <div class="bg-neutral-light p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow flex flex-col h-full">
           <h3 class="font-heading text-xl font-bold text-neutral-deep mb-3">Instalación Especializada</h3>
           <p class="text-gray-600 mb-6">Expertos en colocación de pisos y revestimientos de paredes utilizando materiales de alta calidad.</p>
-          <a href="/es/servicios/instalacion" class="text-primary font-bold hover:underline">Ver más sobre Instalación &rarr;</a>
+          <a href="/es/servicios/instalacion" class="text-primary font-bold hover:underline mt-auto">Ver más sobre Instalación &rarr;</a>
         </div>
-        <div class="bg-neutral-light p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+        
+        <div class="bg-neutral-light p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow flex flex-col h-full">
           <h3 class="font-heading text-xl font-bold text-neutral-deep mb-3">Demolición General</h3>
           <p class="text-gray-600 mb-6">Preparación técnica de espacios con limpieza y eficiencia para su próximo proyecto.</p>
-          <a href="/es/servicios/demolicion" class="text-primary font-bold hover:underline">Ver más sobre Demolición &rarr;</a>
+          <a href="/es/servicios/demolicion" class="text-primary font-bold hover:underline mt-auto">Ver más sobre Demolición &rarr;</a>
         </div>
+
       </div>
     </div>
   </section>
 
-  <section class="py-20 bg-neutral-deep text-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="font-heading text-3xl md:text-4xl font-bold mb-12 text-center">
-        El estándar de calidad que tu hogar merece.
-      </h2>
-      <div class="grid md:grid-cols-3 gap-8 text-center">
-        <div class="p-6">
-          <h3 class="font-bold text-xl mb-3 text-primary">Confianza Local</h3>
-          <p class="text-gray-300">Conocemos los estándares y exigencias de las familias en Florida.</p>
+  <section class="relative py-20 bg-neutral-deep text-white overflow-hidden">
+    
+    {/* --- Fondo estilo Galería (Grid + Glow) --- */}
+    <div class="absolute inset-0 opacity-5 pointer-events-none" 
+         style="background-image: linear-gradient(to right, #ffffff 1px, transparent 1px), linear-gradient(to bottom, #ffffff 1px, transparent 1px); background-size: 50px 50px;">
+    </div>
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-primary/5 blur-[100px] rounded-full pointer-events-none"></div>
+
+    {/* --- Contenido Principal --- */}
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="font-heading text-3xl md:text-4xl font-bold mb-4">
+          Nuestros Proyectos Destacados
+        </h2>
+        <p class="text-gray-300 max-w-2xl mx-auto text-lg">
+          Precisión, limpieza y acabados de alta gama en cada trabajo.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6 mb-12">
+        
+        <div class="group relative overflow-hidden rounded-xl aspect-[4/5] md:aspect-auto md:h-96 cursor-pointer shadow-lg">
+          <Image 
+            src={project1} 
+            alt="Remodelación de Baños" 
+            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+            width={600}
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80 md:opacity-0 md:group-hover:opacity-100 transition-all duration-300 flex flex-col justify-end p-6">
+            <h3 class="text-xl font-bold text-white translate-y-4 md:group-hover:translate-y-0 transition-transform duration-300">Remodelación de Baños</h3>
+            <p class="text-primary text-sm font-medium translate-y-4 md:group-hover:translate-y-0 transition-transform duration-300 delay-75">Ver Detalles</p>
+          </div>
         </div>
-        <div class="p-6">
-          <h3 class="font-bold text-xl mb-3 text-primary">Resultados Tangibles</h3>
-          <p class="text-gray-300">Nuestra galería de proyectos refleja la precisión en cada acabado.</p>
+
+        <div class="group relative overflow-hidden rounded-xl aspect-[4/5] md:aspect-auto md:h-96 cursor-pointer shadow-lg">
+          <Image 
+            src={project2} 
+            alt="Instalación de Pisos" 
+            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+            width={600}
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80 md:opacity-0 md:group-hover:opacity-100 transition-all duration-300 flex flex-col justify-end p-6">
+            <h3 class="text-xl font-bold text-white translate-y-4 md:group-hover:translate-y-0 transition-transform duration-300">Instalación de Pisos</h3>
+            <p class="text-primary text-sm font-medium translate-y-4 md:group-hover:translate-y-0 transition-transform duration-300 delay-75">Ver Detalles</p>
+          </div>
         </div>
-        <div class="p-6">
-          <h3 class="font-bold text-xl mb-3 text-primary">Transparencia Total</h3>
-          <p class="text-gray-300">Ofrecemos estimados claros y sin compromisos desde el primer contacto.</p>
+
+        <div class="group relative overflow-hidden rounded-xl aspect-[4/5] md:aspect-auto md:h-96 cursor-pointer shadow-lg">
+          <Image 
+            src={project3} 
+            alt="Renovación General" 
+            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+            width={600}
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80 md:opacity-0 md:group-hover:opacity-100 transition-all duration-300 flex flex-col justify-end p-6">
+            <h3 class="text-xl font-bold text-white translate-y-4 md:group-hover:translate-y-0 transition-transform duration-300">Renovación General</h3>
+            <p class="text-primary text-sm font-medium translate-y-4 md:group-hover:translate-y-0 transition-transform duration-300 delay-75">Ver Detalles</p>
+          </div>
         </div>
+
+      </div>
+
+      <div class="text-center">
+        <a href="/es/galeria" class="inline-flex items-center gap-2 bg-transparent border-2 border-primary text-primary hover:bg-primary hover:text-black px-8 py-3 rounded-md font-bold text-lg transition-all duration-300 group">
+          Ver Galería Completa
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+        </a>
       </div>
     </div>
   </section>

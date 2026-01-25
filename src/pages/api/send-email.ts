@@ -62,8 +62,8 @@ export const POST: APIRoute = async ({ request }) => {
 
   try {
     const send = await resend.emails.send({
-      from: 'Globo Care Web <onboarding@resend.dev>', // Recuerda configurar tu dominio verificado cuando pases a producción
-      to: ['info@globocareremodeling.com'],
+      from: 'Globo Care Web <noreply@globocareremodeling.net>',
+      to: ['info@globocareremodeling.net'],
       replyTo: email as string, // Permite responder directo al cliente
       subject: `Nuevo Lead: ${name} - ${service}`,
       html: `
