@@ -3,9 +3,8 @@
 import Layout from '../../layouts/Layout.astro';
 import BeforeAfter from '../../components/BeforeAfter.astro';
 
-// Mensaje Predefinido para WhatsApp (Español)
-const whatsappMsg = "Hola, quisiera solicitar un estimado gratuito para mi proyecto.";
-const whatsappLink = `https://wa.me/19418961852?text=${encodeURIComponent(whatsappMsg)}`;
+// CAMBIO: Definimos el link directo al contacto
+const contactLink = "/es/contacto";
 ---
 
 <Layout 
@@ -19,7 +18,7 @@ const whatsappLink = `https://wa.me/19418961852?text=${encodeURIComponent(whatsa
 
     <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 lg:py-48 flex flex-col items-center text-center">
       <h1 class="font-heading text-4xl md:text-5xl lg:text-7xl font-bold tracking-tight mb-6 leading-tight">
-        Transformamos espacios, <br />
+         Transformamos espacios, <br />
         <span class="text-primary">mejoramos tu vida.</span>
       </h1>
       
@@ -29,7 +28,7 @@ const whatsappLink = `https://wa.me/19418961852?text=${encodeURIComponent(whatsa
       </p>
       
       <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
-        <a href={whatsappLink} target="_blank" rel="noopener noreferrer" class="bg-primary hover:bg-primary-dark text-black px-8 py-4 rounded-md font-bold text-lg transition-all shadow-[0_4px_14px_0_rgba(243,146,0,0.39)] hover:shadow-[0_6px_20px_rgba(243,146,0,0.23)] hover:-translate-y-1 text-center">
+        <a href={contactLink} class="bg-primary hover:bg-primary-dark text-black px-8 py-4 rounded-md font-bold text-lg transition-all shadow-[0_4px_14px_0_rgba(243,146,0,0.39)] hover:shadow-[0_6px_20px_rgba(243,146,0,0.23)] hover:-translate-y-1 text-center">
           Quiero mi Estimado Gratis
         </a>
         
@@ -39,8 +38,8 @@ const whatsappLink = `https://wa.me/19418961852?text=${encodeURIComponent(whatsa
         </a>
       </div>
       
-      <div class="mt-8 flex items-center gap-2 text-sm text-gray-400 font-medium bg-neutral-deep/50 px-4 py-2 rounded-full backdrop-blur-sm border border-gray-700">
-        <span class="text-primary">★</span> 
+      <div class="mt-8 flex flex-wrap justify-center items-center gap-2 text-sm text-gray-400 font-medium bg-neutral-deep/50 px-4 py-2 rounded-full backdrop-blur-sm border border-gray-700 h-auto text-center">
+        <span class="text-primary flex-shrink-0">★</span> 
         <span>Expertos en Instalaciones. Presupuestos Transparentes.</span>
       </div>
     </div>
@@ -54,7 +53,6 @@ const whatsappLink = `https://wa.me/19418961852?text=${encodeURIComponent(whatsa
       <p class="text-gray-600 mb-12 max-w-2xl mx-auto">
         Explora nuestras transformaciones más recientes mediante nuestro visor interactivo de antes y después.
       </p>
-      
       <div class="px-4">
         <BeforeAfter 
           beforeImage="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?q=80&w=1200&auto=format&fit=crop"
@@ -68,24 +66,21 @@ const whatsappLink = `https://wa.me/19418961852?text=${encodeURIComponent(whatsa
   <section class="py-20 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-16">
-        <h2 class="font-heading text-3xl md:text-4xl font-bold text-neutral-deep">
+         <h2 class="font-heading text-3xl md:text-4xl font-bold text-neutral-deep">
           Soluciones integrales de remodelación e instalación.
         </h2>
       </div>
-
       <div class="grid md:grid-cols-3 gap-8">
         <div class="bg-neutral-light p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow">
           <h3 class="font-heading text-xl font-bold text-neutral-deep mb-3">Remodelación Profesional</h3>
           <p class="text-gray-600 mb-6">Renovación completa de baños, pisos y espacios interiores con atención al detalle.</p>
           <a href="/es/servicios/remodelacion" class="text-primary font-bold hover:underline">Ver más sobre Remodelación &rarr;</a>
         </div>
-
         <div class="bg-neutral-light p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow">
           <h3 class="font-heading text-xl font-bold text-neutral-deep mb-3">Instalación Especializada</h3>
           <p class="text-gray-600 mb-6">Expertos en colocación de pisos y revestimientos de paredes utilizando materiales de alta calidad.</p>
           <a href="/es/servicios/instalacion" class="text-primary font-bold hover:underline">Ver más sobre Instalación &rarr;</a>
         </div>
-
         <div class="bg-neutral-light p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow">
           <h3 class="font-heading text-xl font-bold text-neutral-deep mb-3">Demolición General</h3>
           <p class="text-gray-600 mb-6">Preparación técnica de espacios con limpieza y eficiencia para su próximo proyecto.</p>
@@ -122,13 +117,11 @@ const whatsappLink = `https://wa.me/19418961852?text=${encodeURIComponent(whatsa
       <h2 class="font-heading text-3xl md:text-4xl font-bold text-neutral-deep mb-12">
         Lo que dicen nuestros clientes en Florida.
       </h2>
-      
       <blockquote class="text-2xl italic text-gray-600 mb-6 relative">
         <span class="text-6xl text-primary absolute -top-8 -left-4 opacity-20">"</span>
         La atención al detalle en la remodelación de nuestro baño principal fue excepcional. Todo el proceso fue profesional y limpio.
         <span class="text-6xl text-primary absolute -bottom-12 -right-4 opacity-20">"</span>
       </blockquote>
-      
       <p class="font-bold text-neutral-deep">— Familia Roberts, Florida</p>
     </div>
   </section>
@@ -141,7 +134,7 @@ const whatsappLink = `https://wa.me/19418961852?text=${encodeURIComponent(whatsa
       <p class="text-lg text-gray-600 mb-10">
         No dejes tu hogar en manos de cualquiera. Obtén la asesoría profesional que necesitas hoy mismo.
       </p>
-      <a href={whatsappLink} target="_blank" rel="noopener noreferrer" class="inline-block bg-primary hover:bg-primary-dark text-black px-8 py-4 rounded-md font-bold text-lg transition-all shadow-lg hover:shadow-xl">
+      <a href={contactLink} class="inline-block bg-primary hover:bg-primary-dark text-black px-8 py-4 rounded-md font-bold text-lg transition-all shadow-lg hover:shadow-xl">
         Solicitar mi Estimado Gratis
       </a>
     </div>

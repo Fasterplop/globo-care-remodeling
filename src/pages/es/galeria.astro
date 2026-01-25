@@ -47,14 +47,15 @@ import imgPiso13 from '../../assets/pisos/piso13.jpg';
 const title = "Galería de Proyectos de Remodelación en Florida | Globo Care Remodeling";
 const description = "Explore nuestras transformaciones reales. Galería de remodelación de baños, pisos y demolición profesional en Florida.";
 
+// Lógica de Contacto (Reemplaza WhatsApp)
+const contactLink = "/es/contacto";
+
 // Textos
 const texts = {
   heading: "Explore nuestra experiencia por categoría",
   subheading: "Utilice los filtros para ver proyectos específicos que se ajusten a sus necesidades actuales.",
   ctaTitle: "¿Listo para ver su hogar en nuestra galería?",
   ctaCopy: "Permítanos llevar el siguiente nivel de calidad a su propiedad. Contáctenos hoy para una asesoría personalizada.",
-  btnWhatsapp: "Consultar sobre un proyecto",
-  btnCall: "Llamar Ahora",
 };
 
 // Datos de proyectos
@@ -107,23 +108,49 @@ const categories = [
   { id: 'paredes', label: 'Paredes y Acabados' },
   { id: 'demolicion', label: 'Demolición' },
 ];
-
-const whatsappLink = "https://wa.me/19418961852?text=Hola,%20vi%20su%20galer%C3%ADa%20y%20me%20interesa%20un%20proyecto.";
-const phoneLink = "tel:+19418961852";
 ---
 
 <Layout title={title} description={description}>
   
-  <section class="bg-neutral-light py-16 md:py-24 border-b border-gray-100">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <h1 class="font-heading text-4xl md:text-5xl font-bold text-neutral-deep mb-6">
-        {texts.heading}
-      </h1>
-      <p class="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
-        {texts.subheading}
-      </p>
+  {/* --- 1. HERO TÉCNICO MINIMALISTA (Sustituye al encabezado anterior) --- */}
+  <section class="relative bg-neutral-deep text-white py-20 border-b border-white/5 overflow-hidden">
+    
+    {/* Fondo Grid */}
+    <div class="absolute inset-0 opacity-5 pointer-events-none" 
+         style="background-image: linear-gradient(to right, #ffffff 1px, transparent 1px), linear-gradient(to bottom, #ffffff 1px, transparent 1px); background-size: 50px 50px;">
+    </div>
+    
+    {/* Luz Sutil */}
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-primary/5 blur-[100px] rounded-full pointer-events-none"></div>
 
-      <div class="mt-10 flex flex-wrap justify-center gap-3" id="portfolio-filters">
+    <div class="relative z-10 max-w-4xl mx-auto px-6 text-center">
+      {/* Marco */}
+      <div class="border-l border-r border-primary/20 px-6 py-8 relative">
+          
+          {/* Esquinas */}
+          <div class="absolute top-0 left-0 w-3 h-3 border-t border-l border-primary/50"></div>
+          <div class="absolute top-0 right-0 w-3 h-3 border-t border-r border-primary/50"></div>
+          <div class="absolute bottom-0 left-0 w-3 h-3 border-b border-l border-primary/50"></div>
+          <div class="absolute bottom-0 right-0 w-3 h-3 border-b border-r border-primary/50"></div>
+
+          <h1 class="font-heading text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-5 text-white leading-tight">
+            Explore nuestra <br />
+            <span class="text-primary">Experiencia</span>
+          </h1>
+          
+          <div class="w-20 h-px bg-gradient-to-r from-transparent via-primary/60 to-transparent mx-auto mb-6 opacity-40"></div>
+
+          <p class="text-lg md:text-xl text-gray-400 font-light max-w-2xl mx-auto leading-relaxed">
+            {texts.subheading}
+          </p>
+      </div>
+    </div>
+  </section>
+
+  {/* --- 2. BARRA DE FILTROS (Movida aquí para mantener funcionalidad) --- */}
+  <section class="bg-neutral-light py-10 border-b border-gray-100 sticky top-20 z-40 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div class="flex flex-wrap justify-center gap-3" id="portfolio-filters">
         {categories.map((cat, index) => (
           <button
             class={`filter-btn px-6 py-2 rounded-full text-sm font-bold transition-all border-2 
@@ -139,6 +166,7 @@ const phoneLink = "tel:+19418961852";
     </div>
   </section>
 
+  {/* --- 3. GRID DE GALERÍA (Contenido Original) --- */}
   <section class="bg-white py-12">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
@@ -179,6 +207,7 @@ const phoneLink = "tel:+19418961852";
     </div>
   </section>
 
+  {/* --- 4. LIGHTBOX (Contenido Original) --- */}
   <div id="lightbox" class="fixed inset-0 z-[60] bg-neutral-deep/95 hidden backdrop-blur-sm transition-opacity duration-300 opacity-0" aria-hidden="true">
     <button 
       onclick="closeLightbox()" 
@@ -202,6 +231,7 @@ const phoneLink = "tel:+19418961852";
     </div>
   </div>
 
+  {/* --- 5. CTA FINAL (Redirigido a Contacto) --- */}
   <section class="bg-neutral-light py-20 border-t border-gray-200">
     <div class="max-w-4xl mx-auto px-4 text-center">
       <h2 class="font-heading text-3xl md:text-4xl font-bold mb-6 text-neutral-deep">
@@ -211,22 +241,12 @@ const phoneLink = "tel:+19418961852";
         {texts.ctaCopy}
       </p>
       
-      <div class="flex flex-col sm:flex-row justify-center gap-4">
+      <div class="flex justify-center">
         <a 
-          href={whatsappLink} 
-          target="_blank" 
-          rel="noopener noreferrer" 
-          class="bg-primary hover:bg-primary-dark text-black px-8 py-4 rounded-md font-bold text-lg transition-all shadow-lg hover:shadow-orange-500/20 hover:-translate-y-1 flex items-center justify-center gap-2"
+          href={contactLink} 
+          class="bg-primary hover:bg-primary-dark text-black px-10 py-4 rounded-md font-bold text-lg transition-all shadow-lg hover:shadow-orange-500/20 hover:-translate-y-1"
         >
-            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
-          {texts.btnWhatsapp}
-        </a>
-        
-        <a 
-          href={phoneLink} 
-          class="bg-transparent border-2 border-neutral-deep text-neutral-deep hover:bg-neutral-deep hover:text-white px-8 py-4 rounded-md font-bold text-lg transition-all flex items-center justify-center gap-2"
-        >
-          {texts.btnCall}
+          Solicitar Asesoría
         </a>
       </div>
     </div>

@@ -14,22 +14,15 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
 const currentPath = Astro.url.pathname;
-
-// --- LÓGICA DE TRADUCCIÓN DE RUTAS (ACTUALIZADA) ---
-// Aquí definimos explícitamente las equivalencias entre páginas EN y ES
+// --- LÓGICA DE TRADUCCIÓN DE RUTAS ---
 const routeMap: Record<string, string> = {
-    // Páginas Principales
     '/services': '/es/servicios',
     '/gallery': '/es/galeria',
     '/about': '/es/nosotros',
     '/contact': '/es/contacto',
-    
-    // Subpáginas de Servicios (NUEVO: Traducciones específicas)
     '/services/remodeling': '/es/servicios/remodelacion',
     '/services/installation': '/es/servicios/instalacion',
     '/services/demolition': '/es/servicios/demolicion',
-
-    // Inversos (ES -> EN)
     '/es/servicios': '/services',
     '/es/galeria': '/gallery',
     '/es/nosotros': '/about',
@@ -40,15 +33,10 @@ const routeMap: Record<string, string> = {
 };
 
 function getTranslatedPath(path: string, targetLang: 'en' | 'es') {
-    // Limpiamos el slash final si existe (excepto en root)
     const cleanPath = path !== '/' && path.endsWith('/') ? path.slice(0, -1) : path;
-    
-    // 1. Buscamos coincidencia exacta en el mapa manual
     if (routeMap[cleanPath]) {
         return routeMap[cleanPath];
     }
-
-    // 2. Fallback: Lógica automática estándar
     if (targetLang === 'es') {
         return path.startsWith('/es') ? path : `/es${path === '/' ? '' : path}`;
     } else {
@@ -59,14 +47,11 @@ function getTranslatedPath(path: string, targetLang: 'en' | 'es') {
 const esPath = getTranslatedPath(currentPath, 'es');
 const enPath = getTranslatedPath(currentPath, 'en');
 
-// Configuración CTA y WhatsApp
+// --- CAMBIO: Configuración de CTA hacia Contacto ---
 const ctaText = lang === 'es' ? 'Solicitar Estimado' : 'Free Estimate';
-const whatsappMsg = lang === 'es' 
-    ? "Hola, quisiera solicitar un estimado gratuito para mi proyecto."
-    : "Hello, I would like to request a free estimate for my project.";
-const whatsappLink = `https://wa.me/19418961852?text=${encodeURIComponent(whatsappMsg)}`;
+// Definimos el enlace de contacto según el idioma
+const contactLink = lang === 'es' ? '/es/contacto' : '/contact';
 
-// Texto de Créditos (Dinamico)
 const designedBy = lang === 'es' ? 'Diseñado y Desarrollado por' : 'Designed and Developed by';
 ---
 
@@ -80,8 +65,8 @@ const designedBy = lang === 'es' ? 'Diseñado y Desarrollado por' : 'Designed an
 		<meta name="generator" content={Astro.generator} />
 		<title>{title} | Globo Care Remodeling</title>
 	</head>
-	<body class="font-sans text-neutral-deep bg-neutral-light antialiased flex flex-col min-h-screen">
-		<header class="sticky top-0 z-50 w-full bg-white/95 backdrop-blur-sm border-b border-gray-100 transition-all duration-300">
+	<body class="font-sans text-neutral-deep bg-neutral-light antialiased flex flex-col min-h-screen pt-20">
+		<header class="fixed top-0 z-50 w-full bg-white/95 backdrop-blur-sm border-b border-gray-100 transition-all duration-300">
 			<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 				<div class="flex justify-between items-center h-20">
 					<div class="flex-shrink-0 z-50">
@@ -89,7 +74,7 @@ const designedBy = lang === 'es' ? 'Diseñado y Desarrollado por' : 'Designed an
 							<img src="/logo-navbar.png.webp" alt="Globo Care Remodeling" class="h-10 sm:h-12 w-auto transition-transform group-hover:scale-105" />
                             <span class="font-heading font-bold text-xs lg:text-xl text-neutral-deep tracking-tight block md:hidden lg:block whitespace-nowrap">
                                 Globo Care Remodeling
-                            </span>
+                             </span>
 						</a>
 					</div>
 
@@ -123,7 +108,7 @@ const designedBy = lang === 'es' ? 'Diseñado y Desarrollado por' : 'Designed an
                             )}
                         </div>
 
-                        <a href={whatsappLink} target="_blank" rel="noopener noreferrer" class="bg-primary hover:bg-primary-dark text-black px-5 py-2.5 rounded-md font-bold text-sm transition-all shadow-md hover:shadow-lg transform hover:-translate-y-0.5 whitespace-nowrap">
+                        <a href={contactLink} class="bg-primary hover:bg-primary-dark text-black px-5 py-2.5 rounded-md font-bold text-sm transition-all shadow-md hover:shadow-lg transform hover:-translate-y-0.5 whitespace-nowrap">
 							{ctaText}
 						</a>
 					</div>
@@ -167,8 +152,8 @@ const designedBy = lang === 'es' ? 'Diseñado y Desarrollado por' : 'Designed an
                     </div>
 
                     <div class="mt-4">
-                        <a href={whatsappLink} target="_blank" rel="noopener noreferrer" class="inline-block w-full max-w-xs bg-primary text-black py-4 rounded-lg font-bold text-xl shadow-lg active:scale-95 transition-transform">
-                            {ctaText}
+                        <a href={contactLink} class="inline-block w-full max-w-xs bg-primary text-black py-4 rounded-lg font-bold text-xl shadow-lg active:scale-95 transition-transform">
+                             {ctaText}
                         </a>
                     </div>
                 </nav>

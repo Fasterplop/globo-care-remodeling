@@ -2,124 +2,136 @@
 // src/pages/about.astro
 import Layout from '../layouts/Layout.astro';
 import { Image } from 'astro:assets';
-
-// Use same images
-import imgStory from '../assets/Remodeling.jpg'; 
+import aboutHero from '../assets/Services.jpg';
 import imgTeam from '../assets/Installation.jpg';
 
-const title = "About Us | The Globo Care Remodeling Difference";
-const description = "More than contractors, we are your partners in Florida dedicated to protecting your home and peace of mind during every renovation.";
-
-const whatsappMsg = "Hello, I'm interested in learning more about how you work.";
-const whatsappLink = `https://wa.me/19418961852?text=${encodeURIComponent(whatsappMsg)}`;
-const phoneLink = "tel:+19418961852";
+// Contact Logic
+const contactLink = "/contact";
 ---
 
-<Layout title={title} description={description}>
-  
-  <section class="bg-white py-16 md:py-24">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <span class="text-primary font-bold tracking-widest uppercase text-sm mb-4 block">
-        Our Essence
-      </span>
-      <h1 class="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-neutral-deep mb-6 leading-tight max-w-4xl mx-auto">
-        Raising the standard of <br class="hidden md:block" /> remodeling in Sarasota.
-      </h1>
-      <p class="text-lg md:text-xl text-gray-500 max-w-2xl mx-auto leading-relaxed font-light">
-        Combining technical construction precision with the warmth and respect your home deserves.
-      </p>
+<Layout 
+  title="About Us | Globo Care Remodeling" 
+  description="Meet Globo Care Remodeling, your trusted partner for home transformations in Florida. Quality, integrity, and exceptional results."
+>
+
+  {/* --- 1. TECHNICAL HERO (New Design) --- */}
+  <section class="relative bg-neutral-deep text-white py-20 border-b border-white/5 overflow-hidden">
+    
+    {/* Grid Background */}
+    <div class="absolute inset-0 opacity-5 pointer-events-none" 
+         style="background-image: linear-gradient(to right, #ffffff 1px, transparent 1px), linear-gradient(to bottom, #ffffff 1px, transparent 1px); background-size: 50px 50px;">
+    </div>
+    
+    {/* Subtle Glow */}
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-primary/5 blur-[100px] rounded-full pointer-events-none"></div>
+
+    <div class="relative z-10 max-w-4xl mx-auto px-6 text-center">
+      {/* Frame */}
+      <div class="border-l border-r border-primary/20 px-6 py-8 relative">
+          
+          {/* Corners */}
+          <div class="absolute top-0 left-0 w-3 h-3 border-t border-l border-primary/50"></div>
+          <div class="absolute top-0 right-0 w-3 h-3 border-t border-r border-primary/50"></div>
+          <div class="absolute bottom-0 left-0 w-3 h-3 border-b border-l border-primary/50"></div>
+          <div class="absolute bottom-0 right-0 w-3 h-3 border-b border-r border-primary/50"></div>
+
+          <h1 class="font-heading text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-5 text-white leading-tight">
+            Our History and <br />
+            <span class="text-primary">Commitment</span>
+          </h1>
+          
+          <div class="w-20 h-px bg-gradient-to-r from-transparent via-primary/60 to-transparent mx-auto mb-6 opacity-40"></div>
+
+          <p class="text-lg md:text-xl text-gray-400 font-light max-w-2xl mx-auto leading-relaxed">
+            More than contractors, we are craftsmen dedicated to improving the quality of life for Florida families through exceptional spaces.
+          </p>
+      </div>
     </div>
   </section>
 
-  <section class="py-20 bg-neutral-light border-y border-gray-100">
+  {/* --- 2. HISTORY & MISSION (Original Content) --- */}
+  <section class="py-24 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid lg:grid-cols-2 gap-16 items-center">
+      <div class="grid md:grid-cols-2 gap-16 items-center">
         
-        <div class="relative group">
-            <div class="absolute inset-0 bg-neutral-deep/5 transform translate-x-4 translate-y-4 rounded-lg transition-transform duration-500 group-hover:translate-x-2 group-hover:translate-y-2"></div>
-            <Image 
-                src={imgStory} 
-                alt="Attention to detail in remodeling"
-                class="relative rounded-lg shadow-sm w-full h-auto object-cover z-10"
-            />
-        </div>
-        
+        {/* Text */}
         <div>
-          <h2 class="font-heading text-3xl font-bold text-neutral-deep mb-6">
-            Building trust, <br/>not just structures.
+          <h2 class="font-heading text-3xl md:text-4xl font-bold text-neutral-deep mb-6">
+            Building trust, <span class="text-primary">project by project</span>.
           </h2>
-          <div class="space-y-6 text-gray-600 leading-relaxed">
-            <p>
-                Globo Care Remodeling was born from a real need in the Sarasota market: to find professionals who not only performed good technical work but also respected the client's personal space.
-            </p>
-            <p>
-                We understand that your house is your sanctuary. That's why we've designed a stress-free process where <strong>cleanliness, punctuality, and clear communication</strong> are just as important as the final finish.
-            </p>
-          </div>
-
-          <div class="mt-10 grid gap-6">
-            <div class="flex items-start gap-4 p-4 bg-white rounded-lg shadow-sm border border-gray-100">
-                <div class="text-primary mt-1">
-                    <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                </div>
-                <div>
-                    <h4 class="font-bold text-neutral-deep text-lg">Total Transparency</h4>
-                    <p class="text-sm text-gray-500 mt-1">Detailed quotes and realistic timelines. No surprises.</p>
-                </div>
+          <p class="text-gray-600 text-lg leading-relaxed mb-6">
+            Globo Care Remodeling was born with a clear vision: to raise the standard of the remodeling industry in Florida. We saw the need for a service that combined technical excellence with transparent and honest customer care.
+          </p>
+          <p class="text-gray-600 text-lg leading-relaxed mb-8">
+            Over the years, we have perfected our processes to ensure that every demolition is clean, every installation is precise, and every client is completely satisfied.
+          </p>
+          
+          <div class="grid grid-cols-2 gap-6">
+            <div class="border-l-4 border-primary pl-4">
+              <h4 class="font-bold text-neutral-deep text-xl">Mission</h4>
+              <p class="text-gray-500 text-sm mt-2">To deliver superior quality remodeling with stress-free service.</p>
             </div>
-            
-            <div class="flex items-start gap-4 p-4 bg-white rounded-lg shadow-sm border border-gray-100">
-                <div class="text-primary mt-1">
-                    <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.384-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" /></svg>
-                </div>
-                <div>
-                    <h4 class="font-bold text-neutral-deep text-lg">Property Care</h4>
-                    <p class="text-sm text-gray-500 mt-1">Furniture protection and daily cleaning of the work area.</p>
-                </div>
+            <div class="border-l-4 border-neutral-deep pl-4">
+              <h4 class="font-bold text-neutral-deep text-xl">Vision</h4>
+              <p class="text-gray-500 text-sm mt-2">To be the trusted reference for excellence in construction across Florida.</p>
             </div>
           </div>
+        </div>
 
+        {/* Image */}
+        <div class="relative h-[500px] rounded-2xl overflow-hidden shadow-2xl">
+           <Image 
+            src={aboutHero} 
+            alt="Globo Care Team" 
+            class="absolute inset-0 w-full h-full object-cover"
+          />
+          <div class="absolute inset-0 bg-neutral-deep/20"></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  {/* --- 3. OUR PILLARS (Replaces "What defines us") --- */}
+  <section class="py-24 bg-neutral-light">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="font-heading text-3xl md:text-4xl font-bold text-neutral-deep mb-4">
+          Our Pillars
+        </h2>
+        <div class="h-1 w-24 bg-primary mx-auto rounded-full"></div>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        {/* Pillar 1 */}
+        <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow border-t-4 border-primary">
+          <h3 class="font-heading text-xl font-bold text-neutral-deep mb-3">Punctuality</h3>
+          <p class="text-gray-600">
+            We respect your time as much as your home. We stick to agreed schedules.
+          </p>
+        </div>
+
+        {/* Pillar 2 */}
+        <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow border-t-4 border-neutral-deep">
+          <h3 class="font-heading text-xl font-bold text-neutral-deep mb-3">Excellence</h3>
+          <p class="text-gray-600">
+            We don't take shortcuts. Every detail is executed to high-end standards.
+          </p>
+        </div>
+
+        {/* Pillar 3 */}
+        <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow border-t-4 border-primary">
+          <h3 class="font-heading text-xl font-bold text-neutral-deep mb-3">Local Team</h3>
+          <p class="text-gray-600">
+            We are your partners in Sarasota. Your satisfaction is our reputation.
+          </p>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="py-20 bg-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-16">
-            <h2 class="font-heading text-3xl font-bold text-neutral-deep">Our Pillars</h2>
-            <div class="w-16 h-1 bg-primary mx-auto mt-4 rounded-full"></div>
-        </div>
-
-        <div class="grid md:grid-cols-3 gap-8">
-            <div class="text-center p-8 rounded-xl hover:bg-neutral-light transition-colors duration-300">
-                <div class="w-16 h-16 bg-neutral-light rounded-full flex items-center justify-center text-primary mx-auto mb-6">
-                    <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                </div>
-                <h3 class="text-xl font-bold text-neutral-deep mb-3">Punctuality</h3>
-                <p class="text-gray-500 leading-relaxed">We respect your time as much as your home. We stick to agreed schedules.</p>
-            </div>
-
-            <div class="text-center p-8 rounded-xl hover:bg-neutral-light transition-colors duration-300">
-                <div class="w-16 h-16 bg-neutral-light rounded-full flex items-center justify-center text-primary mx-auto mb-6">
-                    <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                </div>
-                <h3 class="text-xl font-bold text-neutral-deep mb-3">Excellence</h3>
-                <p class="text-gray-500 leading-relaxed">We don't take shortcuts. Every detail is executed to high-end standards.</p>
-            </div>
-
-            <div class="text-center p-8 rounded-xl hover:bg-neutral-light transition-colors duration-300">
-                <div class="w-16 h-16 bg-neutral-light rounded-full flex items-center justify-center text-primary mx-auto mb-6">
-                    <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
-                </div>
-                <h3 class="text-xl font-bold text-neutral-deep mb-3">Local Team</h3>
-                <p class="text-gray-500 leading-relaxed">We are your partners in Florida. Your satisfaction is our reputation.</p>
-            </div>
-        </div>
-    </div>
-  </section>
-
-  <section class="py-20 bg-neutral-light border-t border-gray-100">
+  {/* --- 4. EXPERT HANDS (New Content) --- */}
+   <section class="py-20 bg-white border-t border-gray-100">
      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex flex-col md:flex-row gap-16 items-center">
             <div class="md:w-1/2 order-2 md:order-1">
@@ -147,21 +159,20 @@ const phoneLink = "tel:+19418961852";
      </div>
   </section>
 
-  <section class="py-24 bg-white border-t border-gray-100 text-center">
-    <div class="max-w-3xl mx-auto px-4">
-      <h2 class="font-heading text-3xl md:text-4xl font-bold text-neutral-deep mb-6">
-        Ready to start your project?
+  {/* --- 5. FINAL CTA (Light/Gray Style) --- */}
+  <section class="py-20 bg-neutral-light border-t border-gray-100">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <h2 class="font-heading text-3xl md:text-4xl font-bold mb-6 text-neutral-deep">
+        Ready to work with us?
       </h2>
-      <p class="text-gray-500 text-lg mb-10">
-        Let us show you why we are the preferred choice in Sarasota.
+      <p class="text-gray-600 text-lg mb-10 max-w-2xl mx-auto">
+        Let us show you why we are the preferred choice for families in Florida.
       </p>
       
-      <div class="flex flex-col sm:flex-row justify-center gap-6">
-        <a href={whatsappLink} target="_blank" rel="noopener noreferrer" class="bg-primary hover:bg-primary-dark text-black px-8 py-4 rounded-md font-bold text-lg transition-all shadow-lg hover:shadow-orange-500/20 hover:-translate-y-1">
-            Start Conversation
-        </a>
-        <a href={phoneLink} class="border-2 border-neutral-deep text-neutral-deep hover:bg-neutral-deep hover:text-white px-8 py-4 rounded-md font-bold text-lg transition-all">
-            Call: (941) 896-1852
+      {/* Button redirected to Contact */}
+      <div class="flex justify-center">
+        <a href={contactLink} class="bg-primary hover:bg-primary-dark text-black px-10 py-4 rounded-md font-bold text-lg transition-all shadow-lg hover:shadow-xl hover:-translate-y-1">
+          Start Conversation
         </a>
       </div>
     </div>

@@ -2,37 +2,50 @@
 // src/pages/es/servicios/index.astro
 import Layout from '../../../layouts/Layout.astro';
 import { Image } from 'astro:assets';
-
-// Importación de Imágenes Optimizadas (Assets Locales)
+// Imágenes Originales
 import remodelingImg from '../../../assets/Remodeling.jpg';
 import installationImg from '../../../assets/Installation.jpg';
 import demolitionImg from '../../../assets/Demolition.jpg';
 import servicesImg from '../../../assets/Services.jpg';
 
-// Mensaje WhatsApp
-const whatsappMsg = "Hola, me gustaría más información sobre sus servicios generales.";
-const whatsappLink = `https://wa.me/19418961852?text=${encodeURIComponent(whatsappMsg)}`;
+const contactLink = "/es/contacto";
 ---
 
 <Layout 
   title="Nuestros Servicios | Globo Care Remodeling" 
-  description="Soluciones integrales en remodelación, instalación de pisos y demolición controlada en Florida. Calidad premium y limpieza garantizada.">
+  description="Soluciones integrales en remodelación, instalación de pisos y demolición controlada en Florida.">
   
-  <section class="relative bg-neutral-deep text-white py-24 lg:py-32 overflow-hidden">
-    <div class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
+  <section class="relative bg-neutral-deep text-white py-20 border-b border-white/5 overflow-hidden">
     
-    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <h1 class="font-heading text-4xl md:text-6xl font-bold tracking-tight mb-6">
-        Excelencia en cada etapa <br />
-        <span class="text-primary">de tu proyecto.</span>
-      </h1>
-      <p class="text-xl text-gray-300 max-w-3xl mx-auto font-light leading-relaxed">
-        No somos solo contratistas; somos artesanos del detalle. Desde la demolición inicial hasta el último acabado, garantizamos un proceso limpio, ordenado y de alta gama.
-      </p>
+    <div class="absolute inset-0 opacity-5 pointer-events-none" 
+         style="background-image: linear-gradient(to right, #ffffff 1px, transparent 1px), linear-gradient(to bottom, #ffffff 1px, transparent 1px); background-size: 50px 50px;">
+    </div>
+    
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-primary/5 blur-[100px] rounded-full pointer-events-none"></div>
+
+    <div class="relative z-10 max-w-3xl mx-auto px-6 text-center">
+      <div class="border-l border-r border-primary/20 px-6 py-8 relative">
+          
+          <div class="absolute top-0 left-0 w-3 h-3 border-t border-l border-primary/50"></div>
+          <div class="absolute top-0 right-0 w-3 h-3 border-t border-r border-primary/50"></div>
+          <div class="absolute bottom-0 left-0 w-3 h-3 border-b border-l border-primary/50"></div>
+          <div class="absolute bottom-0 right-0 w-3 h-3 border-b border-r border-primary/50"></div>
+
+          <h1 class="font-heading text-3xl md:text-5xl font-bold tracking-tight mb-5 text-white">
+            Soluciones Técnicas <br />
+            <span class="text-primary">para tu Proyecto.</span>
+          </h1>
+          
+          <div class="w-20 h-px bg-gradient-to-r from-transparent via-primary/60 to-transparent mx-auto mb-6 opacity-40"></div>
+
+          <p class="text-lg text-gray-400 font-light max-w-xl mx-auto">
+            Ejecución precisa y limpia desde la demolición hasta el acabado final.
+          </p>
+      </div>
     </div>
   </section>
 
-  <section class="py-20 bg-neutral-light relative -mt-10">
+  <section class="py-20 bg-neutral-light relative">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
       <div class="grid md:grid-cols-3 gap-8">
         
@@ -49,7 +62,7 @@ const whatsappLink = `https://wa.me/19418961852?text=${encodeURIComponent(whatsa
           <div class="p-8 flex-1 flex flex-col border-b-4 border-transparent group-hover:border-primary transition-colors">
             <h3 class="font-heading text-2xl font-bold text-neutral-deep mb-3">Remodelación Integral</h3>
             <p class="text-gray-600 mb-6 flex-1">
-              Transformamos baños y espacios interiores con diseños modernos y funcionales. Especialistas en optimización de espacios y acabados de lujo.
+              Transformamos baños y espacios interiores con diseños modernos. Especialistas en optimización y acabados de lujo.
             </p>
             <ul class="text-sm text-gray-500 mb-8 space-y-2">
               <li class="flex items-center gap-2">✓ Diseño de Baños Master</li>
@@ -57,9 +70,7 @@ const whatsappLink = `https://wa.me/19418961852?text=${encodeURIComponent(whatsa
             </ul>
             <a href="/es/servicios/remodelacion" class="inline-flex items-center font-bold text-primary group-hover:text-primary-dark transition-colors">
               Explorar Remodelación 
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
             </a>
           </div>
         </article>
@@ -77,17 +88,15 @@ const whatsappLink = `https://wa.me/19418961852?text=${encodeURIComponent(whatsa
           <div class="p-8 flex-1 flex flex-col border-b-4 border-transparent group-hover:border-primary transition-colors">
             <h3 class="font-heading text-2xl font-bold text-neutral-deep mb-3">Instalación Experta</h3>
             <p class="text-gray-600 mb-6 flex-1">
-              Instalación técnica de pisos (madera, porcelanato, vinil) y revestimientos de pared. Garantizamos nivelación perfecta y cortes precisos.
+              Instalación técnica de pisos (madera, porcelanato, vinil) y paredes. Garantizamos nivelación perfecta.
             </p>
             <ul class="text-sm text-gray-500 mb-8 space-y-2">
               <li class="flex items-center gap-2">✓ Pisos y Paredes 3D</li>
-              <li class="flex items-center gap-2">✓ Backsplash de Cocina</li>
+              <li class="flex items-center gap-2">✓ Backsplash</li>
             </ul>
             <a href="/es/servicios/instalacion" class="inline-flex items-center font-bold text-primary group-hover:text-primary-dark transition-colors">
-              Explorar Instalación
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
+               Explorar Instalación
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
             </a>
           </div>
         </article>
@@ -105,17 +114,15 @@ const whatsappLink = `https://wa.me/19418961852?text=${encodeURIComponent(whatsa
           <div class="p-8 flex-1 flex flex-col border-b-4 border-transparent group-hover:border-primary transition-colors">
             <h3 class="font-heading text-2xl font-bold text-neutral-deep mb-3">Demolición General</h3>
             <p class="text-gray-600 mb-6 flex-1">
-              El primer paso de una gran obra. Realizamos demoliciones controladas, seguras y con estricto manejo de escombros y polvo.
+              El primer paso de una gran obra. Realizamos demoliciones seguras con estricto manejo de polvo.
             </p>
             <ul class="text-sm text-gray-500 mb-8 space-y-2">
-              <li class="flex items-center gap-2">✓ Protección contra polvo</li>
-              <li class="flex items-center gap-2">✓ Retiro de escombros</li>
+              <li class="flex items-center gap-2">✓ Protección Antipolvo</li>
+              <li class="flex items-center gap-2">✓ Retiro de Escombros</li>
             </ul>
             <a href="/es/servicios/demolicion" class="inline-flex items-center font-bold text-primary group-hover:text-primary-dark transition-colors">
               Explorar Demolición
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
             </a>
           </div>
         </article>
@@ -132,7 +139,7 @@ const whatsappLink = `https://wa.me/19418961852?text=${encodeURIComponent(whatsa
             Nuestra Promesa: <span class="text-primary">Tu hogar impecable.</span>
           </h3>
           <p class="text-gray-300 mb-8 text-lg leading-relaxed">
-            Sabemos que el polvo es la mayor pesadilla de una remodelación. Utilizamos tecnología de contención y sistemas de aspiración para garantizar que el resto de tu casa se mantenga habitable y limpio.
+            Sabemos que el polvo es la mayor pesadilla de una remodelación. Utilizamos tecnología de contención para garantizar que tu casa se mantenga habitable.
           </p>
           <div class="flex gap-4">
              <div class="flex items-center gap-2 text-primary font-bold">
@@ -160,7 +167,7 @@ const whatsappLink = `https://wa.me/19418961852?text=${encodeURIComponent(whatsa
     <div class="max-w-4xl mx-auto px-4 text-center">
       <h2 class="font-heading text-3xl font-bold text-neutral-deep mb-6">¿Listo para mejorar tu espacio?</h2>
       <p class="text-gray-600 mb-8">Hablemos de tu proyecto hoy mismo.</p>
-      <a href={whatsappLink} target="_blank" rel="noopener noreferrer" class="inline-block bg-primary hover:bg-primary-dark text-black px-8 py-4 rounded-md font-bold text-lg transition-all shadow-lg hover:shadow-xl hover:-translate-y-1">
+      <a href={contactLink} class="inline-block bg-primary hover:bg-primary-dark text-black px-8 py-4 rounded-md font-bold text-lg transition-all shadow-lg hover:shadow-xl hover:-translate-y-1">
         Solicitar Presupuesto General
       </a>
     </div>

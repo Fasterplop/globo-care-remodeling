@@ -2,37 +2,49 @@
 // src/pages/services/index.astro
 import Layout from '../../layouts/Layout.astro';
 import { Image } from 'astro:assets';
-
-// Optimized Local Assets (Note the path difference: ../../)
 import remodelingImg from '../../assets/Remodeling.jpg';
 import installationImg from '../../assets/Installation.jpg';
 import demolitionImg from '../../assets/Demolition.jpg';
 import servicesImg from '../../assets/Services.jpg';
 
-// Mensaje WhatsApp (Inglés)
-const whatsappMsg = "Hello, I would like more information about your general services.";
-const whatsappLink = `https://wa.me/19418961852?text=${encodeURIComponent(whatsappMsg)}`;
+const contactLink = "/contact";
 ---
 
 <Layout 
   title="Our Services | Globo Care Remodeling" 
-  description="Comprehensive solutions in remodeling, flooring installation, and controlled demolition in Florida. Premium quality and guaranteed cleanliness.">
+  description="Comprehensive solutions in remodeling, flooring installation, and controlled demolition in Florida.">
   
-  <section class="relative bg-neutral-deep text-white py-24 lg:py-32 overflow-hidden">
-    <div class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
+  <section class="relative bg-neutral-deep text-white py-20 border-b border-white/5 overflow-hidden">
     
-    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <h1 class="font-heading text-4xl md:text-6xl font-bold tracking-tight mb-6">
-        Excellence at Every Stage <br />
-        <span class="text-primary">of Your Project.</span>
-      </h1>
-      <p class="text-xl text-gray-300 max-w-3xl mx-auto font-light leading-relaxed">
-        We aren't just contractors; we are artisans of detail. From initial demolition to the final finish, we guarantee a clean, organized, and high-end process.
-      </p>
+    <div class="absolute inset-0 opacity-5 pointer-events-none" 
+         style="background-image: linear-gradient(to right, #ffffff 1px, transparent 1px), linear-gradient(to bottom, #ffffff 1px, transparent 1px); background-size: 50px 50px;">
+    </div>
+    
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-primary/5 blur-[100px] rounded-full pointer-events-none"></div>
+
+    <div class="relative z-10 max-w-3xl mx-auto px-6 text-center">
+      <div class="border-l border-r border-primary/20 px-6 py-8 relative">
+          
+          <div class="absolute top-0 left-0 w-3 h-3 border-t border-l border-primary/50"></div>
+          <div class="absolute top-0 right-0 w-3 h-3 border-t border-r border-primary/50"></div>
+          <div class="absolute bottom-0 left-0 w-3 h-3 border-b border-l border-primary/50"></div>
+          <div class="absolute bottom-0 right-0 w-3 h-3 border-b border-r border-primary/50"></div>
+
+          <h1 class="font-heading text-3xl md:text-5xl font-bold tracking-tight mb-5 text-white">
+            Technical Solutions <br />
+            <span class="text-primary">for Your Project.</span>
+          </h1>
+          
+          <div class="w-20 h-px bg-gradient-to-r from-transparent via-primary/60 to-transparent mx-auto mb-6 opacity-40"></div>
+
+          <p class="text-lg text-gray-400 font-light max-w-xl mx-auto">
+            Precise execution from demolition to final finish.
+          </p>
+      </div>
     </div>
   </section>
 
-  <section class="py-20 bg-neutral-light relative -mt-10">
+  <section class="py-20 bg-neutral-light relative">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
       <div class="grid md:grid-cols-3 gap-8">
         
@@ -41,7 +53,7 @@ const whatsappLink = `https://wa.me/19418961852?text=${encodeURIComponent(whatsa
             <div class="absolute inset-0 bg-neutral-deep/20 group-hover:bg-transparent transition-colors z-10"></div>
             <Image 
               src={remodelingImg} 
-              alt="Bathroom and Interior Remodeling" 
+              alt="Full Remodeling" 
               class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
               width={800}
             />
@@ -49,7 +61,7 @@ const whatsappLink = `https://wa.me/19418961852?text=${encodeURIComponent(whatsa
           <div class="p-8 flex-1 flex flex-col border-b-4 border-transparent group-hover:border-primary transition-colors">
             <h3 class="font-heading text-2xl font-bold text-neutral-deep mb-3">Full Remodeling</h3>
             <p class="text-gray-600 mb-6 flex-1">
-              We transform bathrooms and interior spaces with modern and functional designs. Specialists in space optimization and luxury finishes.
+              We transform bathrooms and interior spaces with modern designs. Specialists in optimization and luxury finishes.
             </p>
             <ul class="text-sm text-gray-500 mb-8 space-y-2">
               <li class="flex items-center gap-2">✓ Master Bathroom Design</li>
@@ -57,9 +69,7 @@ const whatsappLink = `https://wa.me/19418961852?text=${encodeURIComponent(whatsa
             </ul>
             <a href="/services/remodeling" class="inline-flex items-center font-bold text-primary group-hover:text-primary-dark transition-colors">
               Explore Remodeling 
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
             </a>
           </div>
         </article>
@@ -69,7 +79,7 @@ const whatsappLink = `https://wa.me/19418961852?text=${encodeURIComponent(whatsa
             <div class="absolute inset-0 bg-neutral-deep/20 group-hover:bg-transparent transition-colors z-10"></div>
             <Image 
               src={installationImg} 
-              alt="Expert Flooring Installation" 
+              alt="Expert Installation" 
               class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
               width={800}
             />
@@ -77,17 +87,15 @@ const whatsappLink = `https://wa.me/19418961852?text=${encodeURIComponent(whatsa
           <div class="p-8 flex-1 flex flex-col border-b-4 border-transparent group-hover:border-primary transition-colors">
             <h3 class="font-heading text-2xl font-bold text-neutral-deep mb-3">Expert Installation</h3>
             <p class="text-gray-600 mb-6 flex-1">
-              Technical installation of flooring (hardwood, porcelain, vinyl) and wall coverings. We guarantee perfect leveling and precise cuts.
+              Technical installation of flooring (hardwood, porcelain, vinyl) and walls. We guarantee perfect leveling.
             </p>
             <ul class="text-sm text-gray-500 mb-8 space-y-2">
               <li class="flex items-center gap-2">✓ 3D Walls & Flooring</li>
-              <li class="flex items-center gap-2">✓ Kitchen Backsplashes</li>
+              <li class="flex items-center gap-2">✓ Backsplash</li>
             </ul>
             <a href="/services/installation" class="inline-flex items-center font-bold text-primary group-hover:text-primary-dark transition-colors">
-              Explore Installation
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
+               Explore Installation
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
             </a>
           </div>
         </article>
@@ -97,7 +105,7 @@ const whatsappLink = `https://wa.me/19418961852?text=${encodeURIComponent(whatsa
             <div class="absolute inset-0 bg-neutral-deep/20 group-hover:bg-transparent transition-colors z-10"></div>
             <Image 
               src={demolitionImg} 
-              alt="Clean Demolition Services" 
+              alt="General Demolition" 
               class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
               width={800}
             />
@@ -105,7 +113,7 @@ const whatsappLink = `https://wa.me/19418961852?text=${encodeURIComponent(whatsa
           <div class="p-8 flex-1 flex flex-col border-b-4 border-transparent group-hover:border-primary transition-colors">
             <h3 class="font-heading text-2xl font-bold text-neutral-deep mb-3">General Demolition</h3>
             <p class="text-gray-600 mb-6 flex-1">
-              The first step of a great project. We perform controlled, safe demolitions with strict debris and dust management.
+              The first step of a great project. We perform safe demolitions with strict dust management.
             </p>
             <ul class="text-sm text-gray-500 mb-8 space-y-2">
               <li class="flex items-center gap-2">✓ Dust Protection</li>
@@ -113,9 +121,7 @@ const whatsappLink = `https://wa.me/19418961852?text=${encodeURIComponent(whatsa
             </ul>
             <a href="/services/demolition" class="inline-flex items-center font-bold text-primary group-hover:text-primary-dark transition-colors">
               Explore Demolition
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
             </a>
           </div>
         </article>
@@ -132,7 +138,7 @@ const whatsappLink = `https://wa.me/19418961852?text=${encodeURIComponent(whatsa
             Our Promise: <span class="text-primary">Your Home, Spotless.</span>
           </h3>
           <p class="text-gray-300 mb-8 text-lg leading-relaxed">
-            We know dust is the biggest nightmare of remodeling. We use containment technology and vacuum systems to ensure the rest of your home remains livable and clean.
+            We know dust is the biggest nightmare of remodeling. We use containment technology to ensure your home remains livable.
           </p>
           <div class="flex gap-4">
              <div class="flex items-center gap-2 text-primary font-bold">
@@ -160,7 +166,7 @@ const whatsappLink = `https://wa.me/19418961852?text=${encodeURIComponent(whatsa
     <div class="max-w-4xl mx-auto px-4 text-center">
       <h2 class="font-heading text-3xl font-bold text-neutral-deep mb-6">Ready to Upgrade Your Space?</h2>
       <p class="text-gray-600 mb-8">Let's talk about your project today.</p>
-      <a href={whatsappLink} target="_blank" rel="noopener noreferrer" class="inline-block bg-primary hover:bg-primary-dark text-black px-8 py-4 rounded-md font-bold text-lg transition-all shadow-lg hover:shadow-xl hover:-translate-y-1">
+      <a href={contactLink} class="inline-block bg-primary hover:bg-primary-dark text-black px-8 py-4 rounded-md font-bold text-lg transition-all shadow-lg hover:shadow-xl hover:-translate-y-1">
         Request General Quote
       </a>
     </div>

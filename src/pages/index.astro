@@ -3,9 +3,8 @@
 import Layout from '../layouts/Layout.astro';
 import BeforeAfter from '../components/BeforeAfter.astro';
 
-// Mensaje Predefinido para WhatsApp (Inglés)
-const whatsappMsg = "Hello, I would like to request a free estimate for my project.";
-const whatsappLink = `https://wa.me/19418961852?text=${encodeURIComponent(whatsappMsg)}`;
+// CAMBIO: Direct link to contact form
+const contactLink = "/contact";
 ---
 
 <Layout 
@@ -29,7 +28,7 @@ const whatsappLink = `https://wa.me/19418961852?text=${encodeURIComponent(whatsa
       </p>
       
       <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
-        <a href={whatsappLink} target="_blank" rel="noopener noreferrer" class="bg-primary hover:bg-primary-dark text-black px-8 py-4 rounded-md font-bold text-lg transition-all shadow-[0_4px_14px_0_rgba(243,146,0,0.39)] hover:shadow-[0_6px_20px_rgba(243,146,0,0.23)] hover:-translate-y-1 text-center">
+        <a href={contactLink} class="bg-primary hover:bg-primary-dark text-black px-8 py-4 rounded-md font-bold text-lg transition-all shadow-[0_4px_14px_0_rgba(243,146,0,0.39)] hover:shadow-[0_6px_20px_rgba(243,146,0,0.23)] hover:-translate-y-1 text-center">
           Get My Free Estimate
         </a>
         
@@ -39,8 +38,8 @@ const whatsappLink = `https://wa.me/19418961852?text=${encodeURIComponent(whatsa
         </a>
       </div>
       
-      <div class="mt-8 flex items-center gap-2 text-sm text-gray-400 font-medium bg-neutral-deep/50 px-4 py-2 rounded-full backdrop-blur-sm border border-gray-700">
-        <span class="text-primary">★</span> 
+      <div class="mt-8 flex flex-wrap justify-center items-center gap-2 text-sm text-gray-400 font-medium bg-neutral-deep/50 px-4 py-2 rounded-full backdrop-blur-sm border border-gray-700 h-auto text-center">
+        <span class="text-primary flex-shrink-0">★</span> 
         <span>Installation Experts. Transparent Quotes.</span>
       </div>
     </div>
@@ -54,7 +53,6 @@ const whatsappLink = `https://wa.me/19418961852?text=${encodeURIComponent(whatsa
       <p class="text-gray-600 mb-12 max-w-2xl mx-auto">
         Explore our most recent transformations with our interactive before and after viewer.
       </p>
-      
       <div class="px-4">
         <BeforeAfter 
           beforeImage="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?q=80&w=1200&auto=format&fit=crop"
@@ -68,24 +66,21 @@ const whatsappLink = `https://wa.me/19418961852?text=${encodeURIComponent(whatsa
   <section class="py-20 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-16">
-        <h2 class="font-heading text-3xl md:text-4xl font-bold text-neutral-deep">
+         <h2 class="font-heading text-3xl md:text-4xl font-bold text-neutral-deep">
           Comprehensive Remodeling and Installation Solutions.
         </h2>
       </div>
-
       <div class="grid md:grid-cols-3 gap-8">
         <div class="bg-neutral-light p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow">
           <h3 class="font-heading text-xl font-bold text-neutral-deep mb-3">Professional Remodeling</h3>
           <p class="text-gray-600 mb-6">Complete renovation of bathrooms, floors, and interior spaces with attention to detail.</p>
           <a href="/services/remodeling" class="text-primary font-bold hover:underline">See more about Remodeling &rarr;</a>
         </div>
-
         <div class="bg-neutral-light p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow">
           <h3 class="font-heading text-xl font-bold text-neutral-deep mb-3">Specialized Installation</h3>
           <p class="text-gray-600 mb-6">Experts in flooring and wall covering installation using high-quality materials.</p>
           <a href="/services/installation" class="text-primary font-bold hover:underline">See more about Installation &rarr;</a>
         </div>
-
         <div class="bg-neutral-light p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow">
           <h3 class="font-heading text-xl font-bold text-neutral-deep mb-3">General Demolition</h3>
           <p class="text-gray-600 mb-6">Technical preparation of spaces with cleanliness and efficiency for your next project.</p>
@@ -122,13 +117,11 @@ const whatsappLink = `https://wa.me/19418961852?text=${encodeURIComponent(whatsa
       <h2 class="font-heading text-3xl md:text-4xl font-bold text-neutral-deep mb-12">
         What Our Clients in Florida Say.
       </h2>
-      
       <blockquote class="text-2xl italic text-gray-600 mb-6 relative">
         <span class="text-6xl text-primary absolute -top-8 -left-4 opacity-20">"</span>
         The attention to detail in our master bathroom remodel was exceptional. The whole process was professional and clean.
         <span class="text-6xl text-primary absolute -bottom-12 -right-4 opacity-20">"</span>
       </blockquote>
-      
       <p class="font-bold text-neutral-deep">— Roberts Family, Florida</p>
     </div>
   </section>
@@ -141,7 +134,7 @@ const whatsappLink = `https://wa.me/19418961852?text=${encodeURIComponent(whatsa
       <p class="text-lg text-gray-600 mb-10">
         Don't leave your home in just anyone's hands. Get the professional advice you need today.
       </p>
-      <a href={whatsappLink} target="_blank" rel="noopener noreferrer" class="inline-block bg-primary hover:bg-primary-dark text-black px-8 py-4 rounded-md font-bold text-lg transition-all shadow-lg hover:shadow-xl">
+      <a href={contactLink} class="inline-block bg-primary hover:bg-primary-dark text-black px-8 py-4 rounded-md font-bold text-lg transition-all shadow-lg hover:shadow-xl">
         Get My Free Estimate
       </a>
     </div>
