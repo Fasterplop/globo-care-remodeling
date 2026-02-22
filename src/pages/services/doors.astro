@@ -1,0 +1,180 @@
+---
+// src/pages/services/doors.astro
+import Layout from '../../layouts/Layout.astro';
+
+const contactLink = "/contact";
+---
+
+<Layout 
+  title="Professional Door Installation in Florida | Globo Care Remodeling" 
+  description="Secure, perfectly aligned interior and exterior door installations. Enhance your home's privacy and aesthetic with our expert service."
+>
+
+  {/* --- 1. TECHNICAL HERO --- */}
+  <section class="relative bg-neutral-deep text-white py-20 border-b border-white/5 overflow-hidden">
+    <div class="absolute inset-0 opacity-5 pointer-events-none" style="background-image: linear-gradient(to right, #ffffff 1px, transparent 1px), linear-gradient(to bottom, #ffffff 1px, transparent 1px); background-size: 50px 50px;"></div>
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-primary/5 blur-[100px] rounded-full pointer-events-none"></div>
+
+    <div class="relative z-10 max-w-4xl mx-auto px-6 text-center">
+      <div class="border-l border-r border-primary/20 px-6 py-8 relative">
+          <div class="absolute top-0 left-0 w-3 h-3 border-t border-l border-primary/50"></div>
+          <div class="absolute top-0 right-0 w-3 h-3 border-t border-r border-primary/50"></div>
+          <div class="absolute bottom-0 left-0 w-3 h-3 border-b border-l border-primary/50"></div>
+          <div class="absolute bottom-0 right-0 w-3 h-3 border-b border-r border-primary/50"></div>
+
+          <h1 class="font-heading text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-5 text-white leading-tight">
+            Professional & Secure <br />
+            <span class="text-primary">Door Installation</span>
+          </h1>
+          
+          <div class="w-20 h-px bg-gradient-to-r from-transparent via-primary/60 to-transparent mx-auto mb-6 opacity-40"></div>
+
+          <p class="text-lg md:text-xl text-gray-400 font-light max-w-2xl mx-auto leading-relaxed">
+            Perfectly aligned doors for every room. Enhance the privacy, security, and aesthetic value of your property with our expert fitting.
+          </p>
+      </div>
+    </div>
+  </section>
+
+  {/* --- 2. SPECIALTIES --- */}
+  <section class="py-24 bg-neutral-light relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-20">
+        <h2 class="font-heading text-3xl md:text-4xl font-bold text-neutral-deep mb-4">
+          Functionality meets <span class="text-primary">design</span>.
+        </h2>
+        <div class="h-1 w-24 bg-primary mx-auto rounded-full"></div>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8 items-stretch">
+        <div class="relative bg-white p-8 pt-10 rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 border-t-4 border-primary group overflow-hidden h-full flex flex-col">
+           <div class="relative z-10 flex flex-col h-full">
+              <h3 class="font-heading text-2xl font-bold text-neutral-deep mb-4">Interior Doors</h3>
+              <p class="text-gray-600 leading-relaxed mb-8 text-sm flex-grow">
+                Replacement and installation of bedroom, bathroom, and closet doors. We ensure smooth operation and perfect alignment with your floors.
+              </p>
+              <a href={contactLink} class="inline-flex items-center font-bold text-primary hover:text-primary-dark transition-colors uppercase tracking-wider text-sm">Quote my doors <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg></a>
+           </div>
+        </div>
+
+        <div class="relative bg-white p-8 pt-10 rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 border-t-4 border-neutral-deep group overflow-hidden h-full flex flex-col">
+           <div class="relative z-10 flex flex-col h-full">
+              <h3 class="font-heading text-2xl font-bold text-neutral-deep mb-4">Exterior Doors</h3>
+              <p class="text-gray-600 leading-relaxed mb-8 text-sm flex-grow">
+                Secure front doors and weather-sealed patio doors. We focus on structural integrity and insulation against the Florida climate.
+              </p>
+              <a href={contactLink} class="inline-flex items-center font-bold text-primary hover:text-primary-dark transition-colors uppercase tracking-wider text-sm">Consult options <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg></a>
+           </div>
+        </div>
+
+        <div class="relative bg-white p-8 pt-10 rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 border-t-4 border-primary group overflow-hidden h-full flex flex-col">
+           <div class="relative z-10 flex flex-col h-full">
+              <h3 class="font-heading text-2xl font-bold text-neutral-deep mb-4">Hardware & Trim</h3>
+              <p class="text-gray-600 leading-relaxed mb-8 text-sm flex-grow">
+                Installation of high-quality hinges, smart locks, handles, and door casings to complete the look and security of your entryways.
+              </p>
+              <a href="/gallery" class="inline-flex items-center font-bold text-primary hover:text-primary-dark transition-colors uppercase tracking-wider text-sm">View projects <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg></a>
+           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* --- 3. THE GLOBO CARE STANDARD --- */}
+  <section class="py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-2 gap-16 items-center">
+        <div>
+           <h2 class="font-heading text-3xl md:text-4xl font-bold text-neutral-deep mb-6 leading-tight">
+             Why our installation makes the <span class="text-primary">difference</span>.
+           </h2>
+           <p class="text-gray-600 text-lg leading-relaxed mb-8">
+             A door must not only look good but operate flawlessly. We guarantee that your doors will hang perfectly without dragging or swinging open on their own.
+           </p>
+           <a href={contactLink} class="hidden md:inline-block bg-neutral-deep text-white px-8 py-3 rounded-md font-bold hover:bg-black transition-colors">Let's Talk Quality</a>
+        </div>
+        <div class="space-y-8">
+          <div class="flex gap-6 group">
+            <div class="w-1 bg-gray-200 group-hover:bg-primary transition-colors h-auto rounded-full"></div>
+            <div>
+               <h3 class="text-xl font-bold text-neutral-deep mb-2">Plumb & Level Guarantee</h3>
+               <p class="text-gray-500 leading-relaxed">We carefully shim and adjust every frame so your doors stay exactly where you leave them.</p>
+            </div>
+          </div>
+          <div class="flex gap-6 group">
+            <div class="w-1 bg-gray-200 group-hover:bg-primary transition-colors h-auto rounded-full"></div>
+            <div>
+               <h3 class="text-xl font-bold text-neutral-deep mb-2">Weather & Sound Sealing</h3>
+               <p class="text-gray-500 leading-relaxed">Proper insulation techniques to keep the AC in, block external noise, and protect against humidity.</p>
+            </div>
+          </div>
+          <div class="flex gap-6 group">
+            <div class="w-1 bg-gray-200 group-hover:bg-primary transition-colors h-auto rounded-full"></div>
+            <div>
+               <h3 class="text-xl font-bold text-neutral-deep mb-2">Secure Mounting</h3>
+               <p class="text-gray-500 leading-relaxed">Reinforced strike plates and heavy-duty hinges to ensure maximum security for your family.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* --- 4. CONVERSION --- */}
+  <section class="py-16 bg-neutral-light border-y border-gray-100">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <h2 class="font-heading text-3xl font-bold text-neutral-deep mb-4">Upgrade your entryways today.</h2>
+      <p class="text-gray-600 mb-8 max-w-2xl mx-auto">From single door replacements to full-house upgrades, our team is ready. Get a clear and professional quote.</p>
+      <div class="flex justify-center">
+        <a href={contactLink} class="bg-primary hover:bg-primary-dark text-black px-10 py-4 rounded-md font-bold text-lg transition-all shadow-lg hover:shadow-xl hover:-translate-y-1">Get Free Estimate</a>
+      </div>
+    </div>
+  </section>
+
+  {/* --- 5. SOCIAL PROOF --- */}
+  <section class="py-20 bg-white">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <h2 class="font-heading text-3xl font-bold text-neutral-deep mb-12">Tangible Results.</h2>
+      <blockquote class="text-xl md:text-2xl italic text-gray-600 mb-8 relative px-8">
+        <span class="text-6xl text-primary absolute -top-8 left-0 opacity-20">"</span>
+        They replaced all the interior doors in my house. They close with a satisfying click and don't drag on the carpets anymore. Incredible craftsmanship.
+        <span class="text-6xl text-primary absolute -bottom-12 right-0 opacity-20">"</span>
+      </blockquote>
+      <div class="flex flex-col items-center">
+        <div class="w-12 h-1 bg-primary mb-4 rounded-full"></div>
+        <p class="font-bold text-neutral-deep">— Satisfied Client</p>
+      </div>
+    </div>
+  </section>
+
+  {/* --- 6. INTERNAL LINKS --- */}
+  <section class="py-16 bg-neutral-light">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h3 class="font-heading text-xl font-bold text-gray-400 uppercase tracking-widest text-center mb-10">Complementary Services</h3>
+      <div class="grid md:grid-cols-3 gap-6">
+        <a href="/services/baseboards" class="group block p-6 bg-white rounded-xl hover:shadow-lg transition-all border border-transparent hover:border-primary/20">
+          <div class="flex items-center gap-4 mb-2">
+            <div class="bg-neutral-light p-2 rounded-lg shadow-sm group-hover:bg-primary group-hover:text-white transition-colors text-neutral-deep"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" /></svg></div>
+            <h4 class="font-bold text-neutral-deep text-lg group-hover:text-primary transition-colors">Baseboards</h4>
+          </div>
+          <p class="text-sm text-gray-500 pl-[3.25rem]">The perfect framing.</p>
+        </a>
+        <a href="/services/renovation" class="group block p-6 bg-white rounded-xl hover:shadow-lg transition-all border border-transparent hover:border-primary/20">
+          <div class="flex items-center gap-4 mb-2">
+            <div class="bg-neutral-light p-2 rounded-lg shadow-sm group-hover:bg-primary group-hover:text-white transition-colors text-neutral-deep"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" /></svg></div>
+            <h4 class="font-bold text-neutral-deep text-lg group-hover:text-primary transition-colors">Renovation</h4>
+          </div>
+          <p class="text-sm text-gray-500 pl-[3.25rem]">Full room updates.</p>
+        </a>
+        <a href="/gallery" class="group block p-6 bg-white rounded-xl hover:shadow-lg transition-all border border-transparent hover:border-primary/20">
+           <div class="flex items-center gap-4 mb-2">
+             <div class="bg-neutral-light p-2 rounded-lg shadow-sm group-hover:bg-primary group-hover:text-white transition-colors text-neutral-deep"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg></div>
+            <h4 class="font-bold text-neutral-deep text-lg group-hover:text-primary transition-colors">Gallery</h4>
+          </div>
+          <p class="text-sm text-gray-500 pl-[3.25rem]">Get inspired.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</Layout>
