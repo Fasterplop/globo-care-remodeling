@@ -23,6 +23,8 @@ const routeMap: Record<string, string> = {
     '/services/renovation': '/es/servicios/renovacion',
     '/services/installation': '/es/servicios/instalacion',
     '/services/demolition': '/es/servicios/demolicion',
+    '/services/baseboards': '/es/servicios/zocalos',
+    '/services/doors': '/es/servicios/puertas',
     '/es/servicios': '/services',
     '/es/galeria': '/gallery',
     '/es/nosotros': '/about',
@@ -30,6 +32,8 @@ const routeMap: Record<string, string> = {
     '/es/servicios/renovacion': '/services/renovation',
     '/es/servicios/instalacion': '/services/installation',
     '/es/servicios/demolicion': '/services/demolition',
+    '/es/servicios/zocalos': '/services/baseboards',
+    '/es/servicios/puertas': '/services/doors',
 };
 
 function getTranslatedPath(path: string, targetLang: 'en' | 'es') {
