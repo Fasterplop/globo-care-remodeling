@@ -7,6 +7,8 @@ import remodelingImg from '../../../assets/Remodeling.jpg';
 import installationImg from '../../../assets/Installation.jpg';
 import demolitionImg from '../../../assets/Demolition.jpg';
 import servicesImg from '../../../assets/Services.jpg';
+import baseboardsImg from '../../../assets/Services.jpg';
+import doorsImg from '../../../assets/Services.jpg';
 
 const contactLink = "/es/contacto";
 ---
@@ -47,83 +49,92 @@ const contactLink = "/es/contacto";
 
   <section class="py-20 bg-neutral-light relative">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
-      <div class="grid md:grid-cols-3 gap-8">
+      
+      {/* CUADRÍCULA ÚNICA DE 6 COLUMNAS */}
+      <div class="grid grid-cols-1 md:grid-cols-6 auto-rows-fr gap-8">
         
-        <article class="group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col h-full transform hover:-translate-y-2">
-          <div class="h-64 overflow-hidden relative">
+        {/* 1. Remodelación Integral */}
+        <article class="md:col-span-2 group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col h-full transform hover:-translate-y-2">
+          <div class="h-64 overflow-hidden relative shrink-0">
             <div class="absolute inset-0 bg-neutral-deep/20 group-hover:bg-transparent transition-colors z-10"></div>
-            <Image 
-              src={remodelingImg} 
-              alt="Remodelación de Baños y Espacios" 
-              class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
-              width={800}
-            />
+            <Image src={remodelingImg} alt="Renovación de Baños y Espacios" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700" width={800} />
           </div>
           <div class="p-8 flex-1 flex flex-col border-b-4 border-transparent group-hover:border-primary transition-colors">
-            <h3 class="font-heading text-2xl font-bold text-neutral-deep mb-3">Remodelación Integral</h3>
-            <p class="text-gray-600 mb-6 flex-1">
-              Transformamos baños y espacios interiores con diseños modernos. Especialistas en optimización y acabados de lujo.
-            </p>
+            <h3 class="font-heading text-2xl font-bold text-neutral-deep mb-3">Renovación Integral</h3>
+            <p class="text-gray-600 mb-6 flex-1">Transformamos baños y espacios interiores con diseños modernos. Especialistas en optimización y acabados de lujo.</p>
             <ul class="text-sm text-gray-500 mb-8 space-y-2">
               <li class="flex items-center gap-2">✓ Diseño de Baños Master</li>
               <li class="flex items-center gap-2">✓ Gabinetes Custom</li>
             </ul>
-            <a href="/es/servicios/remodelacion" class="inline-flex items-center font-bold text-primary group-hover:text-primary-dark transition-colors">
-              Explorar Remodelación 
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
-            </a>
+            <a href="/es/servicios/renovacion" class="inline-flex items-center font-bold text-primary group-hover:text-primary-dark transition-colors mt-auto">Explorar Renovación <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg></a>
           </div>
         </article>
 
-        <article class="group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col h-full transform hover:-translate-y-2">
-          <div class="h-64 overflow-hidden relative">
+        {/* 2. Instalación Experta */}
+        <article class="md:col-span-2 group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col h-full transform hover:-translate-y-2">
+          <div class="h-64 overflow-hidden relative shrink-0">
             <div class="absolute inset-0 bg-neutral-deep/20 group-hover:bg-transparent transition-colors z-10"></div>
-            <Image 
-              src={installationImg} 
-              alt="Instalación de Pisos y Paredes" 
-              class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
-              width={800}
-            />
+            <Image src={installationImg} alt="Instalación de Pisos y Paredes" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700" width={800} />
           </div>
           <div class="p-8 flex-1 flex flex-col border-b-4 border-transparent group-hover:border-primary transition-colors">
             <h3 class="font-heading text-2xl font-bold text-neutral-deep mb-3">Instalación Experta</h3>
-            <p class="text-gray-600 mb-6 flex-1">
-              Instalación técnica de pisos (madera, porcelanato, vinil) y paredes. Garantizamos nivelación perfecta.
-            </p>
+            <p class="text-gray-600 mb-6 flex-1">Instalación técnica de pisos (madera, porcelanato, vinil) y paredes. Garantizamos nivelación perfecta.</p>
             <ul class="text-sm text-gray-500 mb-8 space-y-2">
               <li class="flex items-center gap-2">✓ Pisos y Paredes 3D</li>
               <li class="flex items-center gap-2">✓ Backsplash</li>
             </ul>
-            <a href="/es/servicios/instalacion" class="inline-flex items-center font-bold text-primary group-hover:text-primary-dark transition-colors">
-               Explorar Instalación
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
-            </a>
+            <a href="/es/servicios/instalacion" class="inline-flex items-center font-bold text-primary group-hover:text-primary-dark transition-colors mt-auto">Explorar Instalación <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg></a>
           </div>
         </article>
 
-        <article class="group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col h-full transform hover:-translate-y-2">
-          <div class="h-64 overflow-hidden relative">
+        {/* 3. Demolición General */}
+        <article class="md:col-span-2 group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col h-full transform hover:-translate-y-2">
+          <div class="h-64 overflow-hidden relative shrink-0">
             <div class="absolute inset-0 bg-neutral-deep/20 group-hover:bg-transparent transition-colors z-10"></div>
-            <Image 
-              src={demolitionImg} 
-              alt="Demolición Limpia y Controlada" 
-              class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
-              width={800}
-            />
+            <Image src={demolitionImg} alt="Demolición Limpia y Controlada" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700" width={800} />
           </div>
           <div class="p-8 flex-1 flex flex-col border-b-4 border-transparent group-hover:border-primary transition-colors">
             <h3 class="font-heading text-2xl font-bold text-neutral-deep mb-3">Demolición General</h3>
-            <p class="text-gray-600 mb-6 flex-1">
-              El primer paso de una gran obra. Realizamos demoliciones seguras con estricto manejo de polvo.
-            </p>
+            <p class="text-gray-600 mb-6 flex-1">El primer paso de una gran obra. Realizamos demoliciones seguras con estricto manejo de polvo.</p>
             <ul class="text-sm text-gray-500 mb-8 space-y-2">
               <li class="flex items-center gap-2">✓ Protección Antipolvo</li>
               <li class="flex items-center gap-2">✓ Retiro de Escombros</li>
             </ul>
-            <a href="/es/servicios/demolicion" class="inline-flex items-center font-bold text-primary group-hover:text-primary-dark transition-colors">
-              Explorar Demolición
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
-            </a>
+            <a href="/es/servicios/demolicion" class="inline-flex items-center font-bold text-primary group-hover:text-primary-dark transition-colors mt-auto">Explorar Demolición <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg></a>
+          </div>
+        </article>
+
+        {/* 4. Zócalos (Centrado con md:col-start-2) */}
+        <article class="md:col-start-2 md:col-span-2 group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col h-full transform hover:-translate-y-2">
+          <div class="h-64 overflow-hidden relative shrink-0">
+            <div class="absolute inset-0 bg-neutral-deep/20 group-hover:bg-transparent transition-colors z-10"></div>
+            <Image src={baseboardsImg} alt="Instalación de Zócalos" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700" width={800} />
+          </div>
+          <div class="p-8 flex-1 flex flex-col border-b-4 border-transparent group-hover:border-primary transition-colors">
+            <h3 class="font-heading text-2xl font-bold text-neutral-deep mb-3">Zócalos (Baseboards)</h3>
+            <p class="text-gray-600 mb-6 flex-1">Mejora la estética de tu hogar con una instalación de zócalos elegante y sin costuras.</p>
+            <ul class="text-sm text-gray-500 mb-8 space-y-2">
+              <li class="flex items-center gap-2">✓ Cortes Precisos</li>
+              <li class="flex items-center gap-2">✓ Acabado Perfecto</li>
+            </ul>
+            <a href="/es/servicios/zocalos" class="inline-flex items-center font-bold text-primary group-hover:text-primary-dark transition-colors mt-auto">Explorar Zócalos <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg></a>
+          </div>
+        </article>
+
+        {/* 5. Puertas */}
+        <article class="md:col-span-2 group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col h-full transform hover:-translate-y-2">
+          <div class="h-64 overflow-hidden relative shrink-0">
+            <div class="absolute inset-0 bg-neutral-deep/20 group-hover:bg-transparent transition-colors z-10"></div>
+            <Image src={doorsImg} alt="Instalación de Puertas" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700" width={800} />
+          </div>
+          <div class="p-8 flex-1 flex flex-col border-b-4 border-transparent group-hover:border-primary transition-colors">
+            <h3 class="font-heading text-2xl font-bold text-neutral-deep mb-3">Instalación de Puertas</h3>
+            <p class="text-gray-600 mb-6 flex-1">Instalación profesional de puertas interiores y exteriores para mejorar la privacidad y el estilo.</p>
+            <ul class="text-sm text-gray-500 mb-8 space-y-2">
+              <li class="flex items-center gap-2">✓ Interiores y Exteriores</li>
+              <li class="flex items-center gap-2">✓ Alineación Perfecta</li>
+            </ul>
+            <a href="/es/servicios/puertas" class="inline-flex items-center font-bold text-primary group-hover:text-primary-dark transition-colors mt-auto">Explorar Puertas <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg></a>
           </div>
         </article>
 

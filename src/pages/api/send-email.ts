@@ -12,8 +12,8 @@ export const POST: APIRoute = async ({ request }) => {
   // Asegura que la petición venga de tu propio sitio
   const origin = request.headers.get("origin");
   const allowedOrigins = [
-    "https://globocareremodeling.com",
-    "https://www.globocareremodeling.com",
+    "https://globocareremodeling.net",
+    "https://www.globocareremodeling.net",
     "http://localhost:4321" // Para pruebas locales
   ];
   
@@ -88,7 +88,7 @@ export const POST: APIRoute = async ({ request }) => {
           <p style="white-space: pre-wrap; background-color: #fff; padding: 15px; border: 1px solid #e5e7eb; border-radius: 5px;">${message}</p>
           
           <hr style="margin-top: 30px; border: 0; border-top: 1px solid #eee;" />
-          <p style="font-size: 12px; color: #888;">Este mensaje fue enviado desde el formulario seguro de globocareremodeling.com</p>
+          <p style="font-size: 12px; color: #888;">Este mensaje fue enviado desde el formulario seguro de globocareremodeling.net</p>
         </div>
       `,
     });

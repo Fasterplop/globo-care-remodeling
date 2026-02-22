@@ -6,6 +6,8 @@ import remodelingImg from '../../assets/Remodeling.jpg';
 import installationImg from '../../assets/Installation.jpg';
 import demolitionImg from '../../assets/Demolition.jpg';
 import servicesImg from '../../assets/Services.jpg';
+import baseboardsImg from '../../assets/Services.jpg'; 
+import doorsImg from '../../assets/Services.jpg';
 
 const contactLink = "/contact";
 ---
@@ -46,83 +48,92 @@ const contactLink = "/contact";
 
   <section class="py-20 bg-neutral-light relative">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
-      <div class="grid md:grid-cols-3 gap-8">
+      
+      {/* CUADRÍCULA ÚNICA DE 6 COLUMNAS PARA TAMAÑO PERFECTAMENTE CONSISTENTE */}
+      <div class="grid grid-cols-1 md:grid-cols-6 auto-rows-fr gap-8">
         
-        <article class="group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col h-full transform hover:-translate-y-2">
-          <div class="h-64 overflow-hidden relative">
+        {/* 1. Full Remodeling */}
+        <article class="md:col-span-2 group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col h-full transform hover:-translate-y-2">
+          <div class="h-64 overflow-hidden relative shrink-0">
             <div class="absolute inset-0 bg-neutral-deep/20 group-hover:bg-transparent transition-colors z-10"></div>
-            <Image 
-              src={remodelingImg} 
-              alt="Full Remodeling" 
-              class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
-              width={800}
-            />
+            <Image src={remodelingImg} alt="Full Renovation" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700" width={800} />
           </div>
           <div class="p-8 flex-1 flex flex-col border-b-4 border-transparent group-hover:border-primary transition-colors">
-            <h3 class="font-heading text-2xl font-bold text-neutral-deep mb-3">Full Remodeling</h3>
-            <p class="text-gray-600 mb-6 flex-1">
-              We transform bathrooms and interior spaces with modern designs. Specialists in optimization and luxury finishes.
-            </p>
+            <h3 class="font-heading text-2xl font-bold text-neutral-deep mb-3">Full Renovation</h3>
+            <p class="text-gray-600 mb-6 flex-1">We transform bathrooms and interior spaces with modern designs. Specialists in optimization and luxury finishes.</p>
             <ul class="text-sm text-gray-500 mb-8 space-y-2">
               <li class="flex items-center gap-2">✓ Master Bathroom Design</li>
               <li class="flex items-center gap-2">✓ Custom Cabinetry</li>
             </ul>
-            <a href="/services/remodeling" class="inline-flex items-center font-bold text-primary group-hover:text-primary-dark transition-colors">
-              Explore Remodeling 
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
-            </a>
+            <a href="/services/renovation" class="inline-flex items-center font-bold text-primary group-hover:text-primary-dark transition-colors mt-auto">Explore Renovation <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg></a>
           </div>
         </article>
 
-        <article class="group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col h-full transform hover:-translate-y-2">
-          <div class="h-64 overflow-hidden relative">
+        {/* 2. Expert Installation */}
+        <article class="md:col-span-2 group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col h-full transform hover:-translate-y-2">
+          <div class="h-64 overflow-hidden relative shrink-0">
             <div class="absolute inset-0 bg-neutral-deep/20 group-hover:bg-transparent transition-colors z-10"></div>
-            <Image 
-              src={installationImg} 
-              alt="Expert Installation" 
-              class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
-              width={800}
-            />
+            <Image src={installationImg} alt="Expert Installation" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700" width={800} />
           </div>
           <div class="p-8 flex-1 flex flex-col border-b-4 border-transparent group-hover:border-primary transition-colors">
             <h3 class="font-heading text-2xl font-bold text-neutral-deep mb-3">Expert Installation</h3>
-            <p class="text-gray-600 mb-6 flex-1">
-              Technical installation of flooring (hardwood, porcelain, vinyl) and walls. We guarantee perfect leveling.
-            </p>
+            <p class="text-gray-600 mb-6 flex-1">Technical installation of flooring (hardwood, porcelain, vinyl) and walls. We guarantee perfect leveling.</p>
             <ul class="text-sm text-gray-500 mb-8 space-y-2">
               <li class="flex items-center gap-2">✓ 3D Walls & Flooring</li>
               <li class="flex items-center gap-2">✓ Backsplash</li>
             </ul>
-            <a href="/services/installation" class="inline-flex items-center font-bold text-primary group-hover:text-primary-dark transition-colors">
-               Explore Installation
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
-            </a>
+            <a href="/services/installation" class="inline-flex items-center font-bold text-primary group-hover:text-primary-dark transition-colors mt-auto">Explore Installation <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg></a>
           </div>
         </article>
 
-        <article class="group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col h-full transform hover:-translate-y-2">
-          <div class="h-64 overflow-hidden relative">
+        {/* 3. General Demolition */}
+        <article class="md:col-span-2 group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col h-full transform hover:-translate-y-2">
+          <div class="h-64 overflow-hidden relative shrink-0">
             <div class="absolute inset-0 bg-neutral-deep/20 group-hover:bg-transparent transition-colors z-10"></div>
-            <Image 
-              src={demolitionImg} 
-              alt="General Demolition" 
-              class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
-              width={800}
-            />
+            <Image src={demolitionImg} alt="General Demolition" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700" width={800} />
           </div>
           <div class="p-8 flex-1 flex flex-col border-b-4 border-transparent group-hover:border-primary transition-colors">
             <h3 class="font-heading text-2xl font-bold text-neutral-deep mb-3">General Demolition</h3>
-            <p class="text-gray-600 mb-6 flex-1">
-              The first step of a great project. We perform safe demolitions with strict dust management.
-            </p>
+            <p class="text-gray-600 mb-6 flex-1">The first step of a great project. We perform safe demolitions with strict dust management.</p>
             <ul class="text-sm text-gray-500 mb-8 space-y-2">
               <li class="flex items-center gap-2">✓ Dust Protection</li>
               <li class="flex items-center gap-2">✓ Debris Removal</li>
             </ul>
-            <a href="/services/demolition" class="inline-flex items-center font-bold text-primary group-hover:text-primary-dark transition-colors">
-              Explore Demolition
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
-            </a>
+            <a href="/services/demolition" class="inline-flex items-center font-bold text-primary group-hover:text-primary-dark transition-colors mt-auto">Explore Demolition <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg></a>
+          </div>
+        </article>
+
+        {/* 4. Baseboards (Usa md:col-start-2 para empujarlo al centro) */}
+        <article class="md:col-start-2 md:col-span-2 group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col h-full transform hover:-translate-y-2">
+          <div class="h-64 overflow-hidden relative shrink-0">
+            <div class="absolute inset-0 bg-neutral-deep/20 group-hover:bg-transparent transition-colors z-10"></div>
+            <Image src={baseboardsImg} alt="Baseboards Installation" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700" width={800} />
+          </div>
+          <div class="p-8 flex-1 flex flex-col border-b-4 border-transparent group-hover:border-primary transition-colors">
+            <h3 class="font-heading text-2xl font-bold text-neutral-deep mb-3">Baseboards</h3>
+            <p class="text-gray-600 mb-6 flex-1">Upgrade your home's aesthetic with seamless and elegant baseboard installations.</p>
+            <ul class="text-sm text-gray-500 mb-8 space-y-2">
+              <li class="flex items-center gap-2">✓ Precision Cutting</li>
+              <li class="flex items-center gap-2">✓ Seamless Finish</li>
+            </ul>
+            <a href="/services/baseboards" class="inline-flex items-center font-bold text-primary group-hover:text-primary-dark transition-colors mt-auto">Explore Baseboards <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg></a>
+          </div>
+        </article>
+
+        {/* 5. Doors (Sigue automáticamente después del Baseboards) */}
+        <article class="md:col-span-2 group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col h-full transform hover:-translate-y-2">
+          <div class="h-64 overflow-hidden relative shrink-0">
+            <div class="absolute inset-0 bg-neutral-deep/20 group-hover:bg-transparent transition-colors z-10"></div>
+            <Image src={doorsImg} alt="Doors Installation" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700" width={800} />
+          </div>
+          <div class="p-8 flex-1 flex flex-col border-b-4 border-transparent group-hover:border-primary transition-colors">
+            <h3 class="font-heading text-2xl font-bold text-neutral-deep mb-3">Doors Installation</h3>
+            <p class="text-gray-600 mb-6 flex-1">Professional installation of interior and exterior doors to enhance privacy and style.</p>
+            <ul class="text-sm text-gray-500 mb-8 space-y-2">
+              <li class="flex items-center gap-2">✓ Interior & Exterior</li>
+              <li class="flex items-center gap-2">✓ Perfect Alignment</li>
+            </ul>
+            <a href="/services/doors" class="inline-flex items-center font-bold text-primary group-hover:text-primary-dark transition-colors mt-auto">Explore Doors <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg></a>
           </div>
         </article>
 
