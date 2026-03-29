@@ -4,9 +4,17 @@ export const prerender = false;
 import type { APIRoute } from 'astro';
 import { Resend } from 'resend';
 
-const resend = new Resend(import.meta.env.RESEND_API_KEY);
 
-export const POST: APIRoute = async ({ request }) => {
+export const POST: APIRoute = async ({ request, locals }) => {
+
+  const runtime = (locals as any).runtime;
+  const apiKey = import.meta.env.RESEND_API_KEY || (runtime?.env?.RESEND_API_KEY);
+  
+  if (!apiKey) {
+    return new Response(JSON.stringify({ message: "API Key missing" }), { status: 500 });
+  }
+
+  const resend = new Resend(apiKey);
   
   // 1. SEGURIDAD: Verificación de Origen (Origin Check)
   // Asegura que la petición venga de tu propio sitio
