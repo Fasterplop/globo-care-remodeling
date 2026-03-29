@@ -1,8 +1,11 @@
 ---
 // src/components/BeforeAfter.astro
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+
 interface Props {
-  beforeImage: string;
-  afterImage: string;
+  beforeImage: ImageMetadata;
+  afterImage: ImageMetadata;
   alt: string;
 }
 
@@ -10,7 +13,7 @@ const { beforeImage, afterImage, alt } = Astro.props;
 ---
 
 <div class="relative w-full max-w-5xl mx-auto aspect-video rounded-xl overflow-hidden shadow-2xl select-none group before-after-container">
-  <img 
+  <Image 
     src={afterImage} 
     alt={`After: ${alt}`} 
     class="absolute inset-0 w-full h-full object-cover"
@@ -22,7 +25,7 @@ const { beforeImage, afterImage, alt } = Astro.props;
   </span>
 
   <div class="absolute inset-0 w-1/2 overflow-hidden before-layer">
-    <img 
+    <Image 
       src={beforeImage} 
       alt={`Before: ${alt}`} 
       class="absolute inset-0 w-[200%] max-w-none h-full object-cover" 
@@ -46,7 +49,6 @@ const { beforeImage, afterImage, alt } = Astro.props;
 <script>
   // Lógica del Slider (Mouse + Touch)
   const containers = document.querySelectorAll('.before-after-container');
-
   containers.forEach(container => {
     const sliderHandle = container.querySelector('.slider-handle') as HTMLElement;
     const beforeLayer = container.querySelector('.before-layer') as HTMLElement;
@@ -56,20 +58,15 @@ const { beforeImage, afterImage, alt } = Astro.props;
 
     const updateSlider = (x: number) => {
       const rect = container.getBoundingClientRect();
-      // Calcular porcentaje (0 a 100)
       let position = ((x - rect.left) / rect.width) * 100;
       
-      // Limitar entre 0% y 100%
       position = Math.max(0, Math.min(100, position));
 
-      // Aplicar estilos
       sliderHandle.style.left = `${position}%`;
       beforeLayer.style.width = `${position}%`;
-      // La imagen interna debe moverse inversamente para mantenerse "fija" visualmente
       beforeImage.style.width = `${10000 / position}%`; 
     };
 
-    // Eventos Mouse
     container.addEventListener('mousedown', () => isDragging = true);
     window.addEventListener('mouseup', () => isDragging = false);
     window.addEventListener('mousemove', (e) => {
@@ -77,12 +74,10 @@ const { beforeImage, afterImage, alt } = Astro.props;
       updateSlider(e.clientX);
     });
 
-    // Eventos Touch (Móvil)
     container.addEventListener('touchstart', () => isDragging = true);
     window.addEventListener('touchend', () => isDragging = false);
     window.addEventListener('touchmove', (e) => {
       if (!isDragging) return;
-      // Prevenir scroll mientras se desliza
       e.preventDefault(); 
       updateSlider((e as TouchEvent).touches[0].clientX);
     });

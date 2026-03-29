@@ -18,7 +18,7 @@ export const POST: APIRoute = async ({ request }) => {
   ];
   
   if (origin && !allowedOrigins.some(o => origin.startsWith(o))) {
-    return new Response(JSON.stringify({ message: "Origen no autorizado" }), { status: 403 });
+    return new Response(JSON.stringify({ message: "Origin not authorized" }), { status: 403 });
   }
 
   const data = await request.formData();
@@ -29,7 +29,7 @@ export const POST: APIRoute = async ({ request }) => {
   if (honeypot) {
     // Retornamos éxito falso para engañar al bot y que deje de intentar
     console.log("Bot detectado por Honeypot");
-    return new Response(JSON.stringify({ message: "Enviado con éxito" }), { status: 200 });
+    return new Response(JSON.stringify({ message: "Sent successfully" }), { status: 200 });
   }
 
   // 3. SEGURIDAD: Validación de Tiempo (Time-trap)
@@ -41,7 +41,7 @@ export const POST: APIRoute = async ({ request }) => {
   // Si tardó menos de 2.5 segundos (2500ms), es sospechoso
   if (!submitTime || timeDiff < 2500) {
      console.log("Envío demasiado rápido (posible bot)");
-     return new Response(JSON.stringify({ message: "Envío demasiado rápido. Por favor tome su tiempo." }), { status: 429 });
+     return new Response(JSON.stringify({ message: "Too fast. Please take your time." }), { status: 429 });
   }
 
   const name = data.get('name');
@@ -55,7 +55,7 @@ export const POST: APIRoute = async ({ request }) => {
   // Validación de campos
   if (!name || !email || !message) {
     return new Response(
-      JSON.stringify({ message: "Faltan campos obligatorios" }),
+      JSON.stringify({ message: "Required fields are missing." }),
       { status: 400 }
     );
   }
@@ -98,11 +98,11 @@ export const POST: APIRoute = async ({ request }) => {
     }
 
     return new Response(
-      JSON.stringify({ message: "Correo enviado con éxito" }),
+      JSON.stringify({ message: "Email sent successfully." }),
       { status: 200 }
     );
   } catch (error) {
     console.error(error);
-    return new Response(JSON.stringify({ message: "Error interno del servidor" }), { status: 500 });
+    return new Response(JSON.stringify({ message: "Internal server error" }), { status: 500 });
   }
 };
