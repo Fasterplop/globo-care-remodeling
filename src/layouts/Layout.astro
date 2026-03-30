@@ -57,6 +57,10 @@ const ctaText = lang === 'es' ? 'Solicitar Estimado' : 'Free Estimate';
 const contactLink = lang === 'es' ? '/es/contacto' : '/contact';
 
 const designedBy = lang === 'es' ? 'Diseñado y Desarrollado por' : 'Designed and Developed by';
+
+const siteURL = Astro.site ?? Astro.url;
+const ogImageURL = new URL('/og-image.JPG', siteURL).href;
+
 ---
 
 <!doctype html>
@@ -66,10 +70,10 @@ const designedBy = lang === 'es' ? 'Diseñado y Desarrollado por' : 'Designed an
         <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
 
 <meta property="og:type" content="website" />
-<meta property="og:url" content={Astro.url} />
+<meta property="og:url" content={Astro.url.href} /> 
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
-<meta property="og:image" content={new URL('/og-image.JPG', Astro.site)} />
+<meta property="og:image" content={ogImageURL} />
 
 
 
@@ -85,8 +89,8 @@ const designedBy = lang === 'es' ? 'Diseñado y Desarrollado por' : 'Designed an
   "@context": "https://schema.org",
   "@type": "HomeAndConstructionBusiness",
   "name": "Globo Care Remodeling",
-  "image": new URL('/og-image.JPG', Astro.site),
-  "url": Astro.site,
+  "image": ogImageURL,
+  "url": siteURL.href,
   "telephone": "+1-941-896-1852", 
   "address": {
     "@type": "PostalAddress",
