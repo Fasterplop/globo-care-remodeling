@@ -1,0 +1,37 @@
+---
+// src/pages/404.astro
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout 
+  title="404 - Page Not Found | Globo Care Remodeling" 
+  description="The page you are looking for does not exist.">
+  
+  <section class="min-h-[70vh] flex flex-col justify-center items-center bg-neutral-light py-20 px-4">
+    <div class="max-w-3xl mx-auto text-center">
+      <h1 class="font-heading text-8xl md:text-9xl font-bold text-primary mb-2 tracking-tight">
+        404
+      </h1>
+      
+      <h2 class="font-heading text-3xl md:text-4xl font-bold text-neutral-deep mb-6">
+        Oops! Page Not Found.
+      </h2>
+      
+      <p class="text-lg md:text-xl text-gray-600 mb-10 max-w-2xl mx-auto">
+        The page you are looking for might have been removed, had its name changed, or is temporarily unavailable. 
+      </p>
+      
+      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+        
+        <a href="/" class="w-full sm:w-auto bg-primary hover:bg-primary-dark text-black px-8 py-4 rounded-md font-bold text-lg transition-all shadow-[0_4px_14px_0_rgba(243,146,0,0.39)] hover:shadow-[0_6px_20px_rgba(243,146,0,0.23)] hover:-translate-y-1 text-center">
+          Back to Home
+        </a>
+        
+        <a href="/es" class="w-full sm:w-auto bg-transparent border-2 border-primary text-primary hover:bg-primary hover:text-black px-8 py-4 rounded-md font-bold text-lg transition-all duration-300 text-center">
+          Volver al Inicio (ES)
+        </a>
+
+      </div>
+    </div>
+  </section>
+</Layout>

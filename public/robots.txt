@@ -1,0 +1,10 @@
+# public/robots.txt
+
+User-agent: *
+Allow: /
+
+# Evitar que los bots indexen rutas de API o recursos internos privados si los tuvieras
+Disallow: /api/
+
+# Enlace al Sitemap generado automáticamente por @astrojs/sitemap
+Sitemap: https://globocareremodeling.net/sitemap-index.xml
