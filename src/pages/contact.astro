@@ -179,6 +179,8 @@ const emailLink = "mailto:info@globocareremodeling.net";
   </section>
 
   <script>
+
+    declare function gtag(...args: any[]): void;
     const form = document.getElementById('contact-form-en') as HTMLFormElement;
     const messageEl = document.getElementById('form-message-en');
     const submitBtn = document.getElementById('submit-btn-en') as HTMLButtonElement;
@@ -213,6 +215,15 @@ const emailLink = "mailto:info@globocareremodeling.net";
               messageEl.classList.add('text-green-600');
               messageEl.innerText = "Message sent successfully! We will contact you soon.";
             }
+
+            if (typeof gtag === 'function') {
+              gtag('event', 'conversion', {
+                  'send_to': 'AW-18039271533/jSNGCPaGiJccEO3g5ZlD',
+                  'value': 1.0,
+                  'currency': 'USD'
+              });
+            }
+
           } else {
              if (response.status === 429) {
                  throw new Error("Submission too fast. Please take your time.");
