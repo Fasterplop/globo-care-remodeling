@@ -68,6 +68,9 @@ const ogImageURL = new URL('/og-image.JPG', siteURL).href;
 	<head>
 
         <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
+        <link rel="alternate" hreflang="es" href={new URL(esPath, Astro.site)} />
+        <link rel="alternate" hreflang="en" href={new URL(enPath, Astro.site)} />
+        <link rel="alternate" hreflang="x-default" href={new URL(enPath, Astro.site)} />
 
 <meta property="og:type" content="website" />
 <meta property="og:url" content={Astro.url.href} /> 
