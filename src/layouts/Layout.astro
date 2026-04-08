@@ -34,6 +34,8 @@ const routeMap: Record<string, string> = {
     '/es/servicios/demolicion': '/services/demolition',
     '/es/servicios/zocalos': '/services/baseboards',
     '/es/servicios/puertas': '/services/doors',
+    '/privacy-policy': '/es/politica-de-privacidad',
+    '/es/politica-de-privacidad': '/privacy-policy',
 };
 
 function getTranslatedPath(path: string, targetLang: 'en' | 'es') {
@@ -55,6 +57,10 @@ const enPath = getTranslatedPath(currentPath, 'en');
 const ctaText = lang === 'es' ? 'Solicitar Estimado' : 'Free Estimate';
 // Definimos el enlace de contacto según el idioma
 const contactLink = lang === 'es' ? '/es/contacto' : '/contact';
+const privacyLink = lang === 'es' ? '/es/politica-de-privacidad' : '/privacy-policy';
+const servicesLink = lang === 'es' ? '/es/servicios' : '/services';
+const aboutLink = lang === 'es' ? '/es/nosotros' : '/about';
+const galleryLink = lang === 'es' ? '/es/galeria' : '/gallery';
 
 const designedBy = lang === 'es' ? 'Diseñado y Desarrollado por' : 'Designed and Developed by';
 
@@ -211,28 +217,72 @@ const ogImageURL = new URL('/og-image.JPG', siteURL).href;
 			<slot />
 		</main>
 
-        <footer class="bg-neutral-deep text-white py-12 border-t border-gray-800">
-			<div class="max-w-7xl mx-auto px-4 text-center">
-				<p class="text-gray-400 text-sm mb-4">
-                    © {new Date().getFullYear()} Globo Care Remodeling. {t('footer.rights')}
+<footer class="bg-neutral-deep text-white pt-16 pb-8 border-t border-gray-800 mt-auto">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12 text-center md:text-left">
+            
+            <div class="flex flex-col items-center md:items-start gap-4">
+                <div class="flex items-center gap-2">
+                    <img src="/logo-navbar.png.webp" alt="Globo Care Remodeling" class="h-10 w-auto" />
+                    <span class="font-heading font-bold text-lg tracking-tight">Globo Care Remodeling</span>
+                </div>
+                <p class="text-gray-400 text-sm leading-relaxed max-w-xs">
+                    {t('footer.description')}
                 </p>
-                
-                <div class="w-12 h-px bg-gray-700 mx-auto mb-4"></div>
-                
-                <p class="text-gray-500 text-xs tracking-wide">
-                    {designedBy} 
-                    <a 
-                        href="https://hikevodesign.com" 
-                        target="_blank" 
-                        rel="noopener noreferrer" 
-                        class="text-gray-400 hover:text-primary transition-colors duration-300 font-semibold ml-1"
-                        aria-label="Hikevo Design Website"
-                    >
-                        Hikevo Design
-                    </a>
-                </p>
-			</div>
-		</footer>
+            </div>
+
+            <div>
+                <h3 class="font-heading font-bold text-white uppercase tracking-wider text-sm mb-6">{t('footer.company')}</h3>
+                <ul class="space-y-4 text-sm text-gray-400">
+                    <li><a href={lang === 'en' ? '/' : '/es'} class="hover:text-primary transition-colors">{t('nav.home')}</a></li>
+                    <li><a href={aboutLink} class="hover:text-primary transition-colors">{t('nav.about')}</a></li>
+                    <li><a href={galleryLink} class="hover:text-primary transition-colors">{t('nav.gallery')}</a></li>
+                    <li><a href={privacyLink} class="hover:text-primary transition-colors">{t('footer.privacy')}</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h3 class="font-heading font-bold text-white uppercase tracking-wider text-sm mb-6">{t('footer.services')}</h3>
+                <ul class="space-y-4 text-sm text-gray-400">
+                    <li><a href={lang === 'en' ? '/services/renovation' : '/es/servicios/renovacion'} class="hover:text-primary transition-colors">{lang === 'es' ? 'Renovación' : 'Renovation'}</a></li>
+                    <li><a href={lang === 'en' ? '/services/installation' : '/es/servicios/instalacion'} class="hover:text-primary transition-colors">{lang === 'es' ? 'Instalación' : 'Installation'}</a></li>
+                    <li><a href={lang === 'en' ? '/services/demolition' : '/es/servicios/demolicion'} class="hover:text-primary transition-colors">{lang === 'es' ? 'Demolición' : 'Demolition'}</a></li>
+                    <li><a href={servicesLink} class="font-semibold text-primary hover:underline">{lang === 'es' ? 'Ver todos' : 'View all'}</a></li>
+                </ul>
+            </div>
+
+            <div class="flex flex-col items-center md:items-start">
+                <h3 class="font-heading font-bold text-white uppercase tracking-wider text-sm mb-6">{t('footer.contact')}</h3>
+                <ul class="space-y-4 text-sm text-gray-400">
+                    <li class="flex items-center justify-center md:justify-start gap-3">
+                        <span class="text-primary">📍</span>
+                        <span>Florida, USA</span>
+                    </li>
+                    <li class="flex items-center justify-center md:justify-start gap-3">
+                        <span class="text-primary">📞</span>
+                        <a href="tel:+19418961852" class="hover:text-primary transition-colors">+1-941-896-1852</a>
+                    </li>
+                    <li class="mt-6">
+                        <a href={contactLink} class="bg-primary hover:bg-primary-dark text-black px-6 py-2.5 rounded font-bold text-xs uppercase transition-all inline-block shadow-md">
+                            {ctaText}
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-500 text-center md:text-left">
+            <p>© {new Date().getFullYear()} Globo Care Remodeling. {t('footer.rights')}</p>
+            
+            <p class="tracking-wide">
+                {designedBy} 
+                <a href="https://hikevodesign.com" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-primary transition-colors font-semibold ml-1">
+                    Hikevo Design
+                </a>
+            </p>
+        </div>
+    </div>
+</footer>
 
         <script is:inline>
             const btn = document.getElementById('mobile-menu-btn');
